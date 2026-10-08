@@ -1,0 +1,23 @@
+{
+  "id": "human-headscarf",
+  "category": "human",
+  "label_th": "ผ้าโพกศีรษะ",
+  "description": "a chibi adult woman, dark skin, fitted red headscarf, navy top with white collar",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "49d4ab0436b29b0257f5284717c7db9e0274656ff19d8f757e2eb2ce8546d1c4",
+    "reactions": "abfb05fc606a3e60dc46f304a1626c9f8ff07210f9d65b3dc2623adcb4aea7dc"
+  },
+  "report": {
+    "name": "human-headscarf",
+    "jump": 0.44,
+    "jump_cell": "directions[0]",
+    "palette": 0.779,
+    "palette_cell": "reactions[7]",
+    "width": 0.021,
+    "width_cell": "reactions[6]",
+    "ok": true
+  }
+}

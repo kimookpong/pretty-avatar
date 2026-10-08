@@ -1,0 +1,23 @@
+{
+  "id": "animal-panda",
+  "category": "animal",
+  "label_th": "แพนด้า",
+  "description": "a chibi panda, black eye patches, round ears, mint top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-panda",
+    "jump": 0.44,
+    "jump_cell": "directions[0]",
+    "palette": 0.732,
+    "palette_cell": "reactions[6]",
+    "width": 0.029,
+    "width_cell": "reactions[6]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "74e6192c255c6677dbbf10fec8514b05480cecddee235ea2af4ab833edae6392",
+    "reactions": "c73977b7b6a89caab08de8f0f2810d96bc7ce5bc3db2ba73c2ee3d70076e697c"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "animal-bear",
+  "category": "animal",
+  "label_th": "หมี",
+  "description": "a chibi brown bear, round ears, cream muzzle, yellow top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-bear",
+    "jump": 0.98,
+    "jump_cell": "directions[3]",
+    "palette": 0.694,
+    "palette_cell": "reactions[5]",
+    "width": 0.026,
+    "width_cell": "reactions[7]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "f29c83540cf8e1a133abf03a53adb745b977a1a0d15021fe5d38e22eef393636",
+    "reactions": "fa57921d9cba08e9d8c5badf65d3340d406f07d07495af9be8d1130cfe543055"
+  }
+}

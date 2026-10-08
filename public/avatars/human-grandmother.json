@@ -1,0 +1,23 @@
+{
+  "id": "human-grandmother",
+  "category": "human",
+  "label_th": "คุณย่า",
+  "description": "a chibi older woman, light skin, silver hair in a low compact bun, round glasses, rose cardigan",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "f532c92ad95f837e532ef0ee4e635d3136c022cde4d73363620c606385baa74f",
+    "reactions": "642878c7648b79d01ba8dfea1c157b9dba331833b8b2af475c862c7f9c1f4a85"
+  },
+  "report": {
+    "name": "human-grandmother",
+    "jump": 0.44,
+    "jump_cell": "directions[2]",
+    "palette": 0.827,
+    "palette_cell": "reactions[6]",
+    "width": 0.028,
+    "width_cell": "reactions[4]",
+    "ok": true
+  }
+}

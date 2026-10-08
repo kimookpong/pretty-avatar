@@ -1,0 +1,23 @@
+{
+  "id": "animal-raccoon",
+  "category": "animal",
+  "label_th": "แรคคูน",
+  "description": "a chibi grey raccoon, dark eye mask, pointed ears, teal crew-neck shirt",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "513506036af799a0e8f23c73a64c3fc658285dfff9a80dea82c0bc4b40fd20be",
+    "reactions": "2485d8fa93da9146078883f7b3dd59c8a8f29886d6aa8b61816a414d5fb5e36b"
+  },
+  "report": {
+    "name": "animal-raccoon",
+    "jump": 1.31,
+    "jump_cell": "reactions[6]",
+    "palette": 0.663,
+    "palette_cell": "reactions[3]",
+    "width": 0.018,
+    "width_cell": "reactions[1]",
+    "ok": true
+  }
+}

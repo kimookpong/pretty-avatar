@@ -1,0 +1,23 @@
+{
+  "id": "animal-hedgehog",
+  "category": "animal",
+  "label_th": "เม่น",
+  "description": "a chibi brown hedgehog, compact rounded spines, cream face, olive top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-hedgehog",
+    "jump": 1.96,
+    "jump_cell": "directions[0]",
+    "palette": 0.822,
+    "palette_cell": "reactions[4]",
+    "width": 0.025,
+    "width_cell": "reactions[2]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "2bb1fa538221bad50c3f3f0a96eb763b5c824d93e103a90708f4e93cc25fdaa4",
+    "reactions": "8fad7f7c4de6340b8cb8a66e336607a983d738bef290eefac734075260d9d853"
+  }
+}

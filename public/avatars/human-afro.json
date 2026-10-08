@@ -1,0 +1,23 @@
+{
+  "id": "human-afro",
+  "category": "human",
+  "label_th": "ผมแอฟโฟร",
+  "description": "a chibi adult woman, dark skin, compact rounded afro, small gold stud earrings, yellow top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "8ccb855088f5e17b4977372d48867e1b1a3b0c850b4dd9dd5383393bb9ebb60b",
+    "reactions": "b4f0b1457f70dbef6309c3e93f98cf8e694ffc1b98ccb81b184874ca3c1b6651"
+  },
+  "report": {
+    "name": "human-afro",
+    "jump": 1.8,
+    "jump_cell": "directions[6]",
+    "palette": 0.787,
+    "palette_cell": "reactions[2]",
+    "width": 0.012,
+    "width_cell": "reactions[7]",
+    "ok": true
+  }
+}

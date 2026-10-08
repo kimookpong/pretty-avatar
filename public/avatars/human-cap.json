@@ -1,0 +1,23 @@
+{
+  "id": "human-cap",
+  "category": "human",
+  "label_th": "หมวกแก๊ป",
+  "description": "a chibi young adult man, light skin, short chestnut hair, compact red cap, green top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "3234208290ba3064bff0a5fff03a28281b709bdaca422791112ce8bea5e9d478",
+    "reactions": "baecd3494d0ffe89962f5a10c4f3bd5b726770a4e6ea4e4aa5dd7a19fb054988"
+  },
+  "report": {
+    "name": "human-cap",
+    "jump": 1.31,
+    "jump_cell": "directions[6]",
+    "palette": 0.68,
+    "palette_cell": "reactions[6]",
+    "width": 0.017,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

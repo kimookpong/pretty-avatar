@@ -1,0 +1,23 @@
+{
+  "id": "human-doctor",
+  "category": "human",
+  "label_th": "แพทย์",
+  "description": "a chibi adult man, medium skin, short dark hair, round glasses, white coat over blue collar",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "30aebcea77e512bffee246a1e84b23c249ad7d8483ba732b3361fa5128b0606b",
+    "reactions": "9254c3c957581e2d8d38bfc7f60ef18745b3f3943788cba2b57d2e199467bb10"
+  },
+  "report": {
+    "name": "human-doctor",
+    "jump": 1.31,
+    "jump_cell": "directions[6]",
+    "palette": 0.684,
+    "palette_cell": "reactions[2]",
+    "width": 0.021,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

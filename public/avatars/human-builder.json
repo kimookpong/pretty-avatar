@@ -1,0 +1,23 @@
+{
+  "id": "human-builder",
+  "category": "human",
+  "label_th": "ช่างก่อสร้าง",
+  "description": "a chibi adult woman, brown skin, compact yellow safety helmet, charcoal work top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "e846e6efffcedd996397c8c0ea881979d9e046ddabde124146ed3088c37b37ed",
+    "reactions": "412beab5442c926bdb7591db4ef6a9ba9829fd5a77c0fb46c0d39d24e92f87fc"
+  },
+  "report": {
+    "name": "human-builder",
+    "jump": 0.88,
+    "jump_cell": "directions[0]",
+    "palette": 0.748,
+    "palette_cell": "reactions[7]",
+    "width": 0.012,
+    "width_cell": "reactions[3]",
+    "ok": true
+  }
+}

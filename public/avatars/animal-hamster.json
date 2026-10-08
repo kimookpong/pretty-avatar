@@ -1,0 +1,23 @@
+{
+  "id": "animal-hamster",
+  "category": "animal",
+  "label_th": "แฮมสเตอร์",
+  "description": "a chibi golden hamster, plump cream cheeks, tiny round ears, peach top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "83932c51dfce58063330be3f1e553fea89ec591c53566e242486ce69c8b40027",
+    "reactions": "7be0345dd42f3b3fcf5ef5f420194aa0ea883a2caa7eec0ff74eba2ce59d8e1a"
+  },
+  "report": {
+    "name": "animal-hamster",
+    "jump": 1.31,
+    "jump_cell": "directions[0]",
+    "palette": 0.581,
+    "palette_cell": "reactions[7]",
+    "width": 0.069,
+    "width_cell": "reactions[2]",
+    "ok": true
+  }
+}

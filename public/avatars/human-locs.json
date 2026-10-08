@@ -1,0 +1,23 @@
+{
+  "id": "human-locs",
+  "category": "human",
+  "label_th": "ผมล็อกมัดขึ้น",
+  "description": "a chibi adult man, dark skin, short locs gathered behind head, cream top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "4f1d28474a9c749329b9dde24e50d464201d087d683cbd2a1ac6382306ac21d8",
+    "reactions": "9f1ad9d64a705c7886023cf7ec4b7f55ea67f3d178c4b7042ee1375743667b0e"
+  },
+  "report": {
+    "name": "human-locs",
+    "jump": 0.62,
+    "jump_cell": "reactions[0]",
+    "palette": 0.768,
+    "palette_cell": "reactions[2]",
+    "width": 0.039,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

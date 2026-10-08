@@ -1,0 +1,23 @@
+{
+  "id": "animal-tiger",
+  "category": "animal",
+  "label_th": "เสือ",
+  "description": "a chibi orange tiger, black stripes, white muzzle, green eyes, cream top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-tiger",
+    "jump": 0.44,
+    "jump_cell": "directions[1]",
+    "palette": 0.56,
+    "palette_cell": "reactions[6]",
+    "width": 0.017,
+    "width_cell": "reactions[0]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "f6d5311be4ff3e32f7cd6b37fcbf37f4885557ef35d81a793123bd9eb62f1ea1",
+    "reactions": "d3fd7af04356bb075d6864d3336d80e86b32132bd82e36b19f9078bad0b94d7d"
+  }
+}

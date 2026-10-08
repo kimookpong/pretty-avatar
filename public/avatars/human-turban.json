@@ -1,0 +1,23 @@
+{
+  "id": "human-turban",
+  "category": "human",
+  "label_th": "ผ้าโพกแบบเทอร์บัน",
+  "description": "a chibi adult man, brown skin, compact burgundy turban, neat black beard, grey top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "76263870b6f97da25a083e143fbe883d01cd0713fa07aa6a24ba6afc2c72fc2e",
+    "reactions": "74243733200119335fac62e49d3305f715ff3a99f340783943e0f63ed1f9e2d5"
+  },
+  "report": {
+    "name": "human-turban",
+    "jump": 0.44,
+    "jump_cell": "directions[0]",
+    "palette": 0.805,
+    "palette_cell": "reactions[6]",
+    "width": 0.022,
+    "width_cell": "reactions[7]",
+    "ok": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "human-hijab",
+  "category": "human",
+  "label_th": "ฮิญาบ",
+  "description": "a chibi adult woman, warm brown skin, simple fitted lavender hijab hood ending at the jawline, navy high-neck top, no loose scarf folds over the chest",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "620585b116c88767ea7e5b96fa1f26559736a18722b9cf2bc6aa77f7d4366e32",
+    "reactions": "aa4e9fb0af2b65fb982de3657ec70bccd15fb2cf78ea014c0da4d641b84f8af8"
+  },
+  "report": {
+    "name": "human-hijab",
+    "jump": 0.88,
+    "jump_cell": "directions[6]",
+    "palette": 0.32,
+    "palette_cell": "reactions[5]",
+    "width": 0.009,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

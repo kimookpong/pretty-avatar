@@ -1,0 +1,23 @@
+{
+  "id": "human-astronaut",
+  "category": "human",
+  "label_th": "นักบินอวกาศ",
+  "description": "a chibi adult woman, dark skin, compact white space helmet with open clear visor, white suit collar",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "5c781a349bea1d46d7c521134e7992cacf548b1d00a13e5ba9297723425d68a9",
+    "reactions": "89ba95ae80796a5ac67aa36d6886f0d453f1e138e4e01df0a261a28ca5c220a2"
+  },
+  "report": {
+    "name": "human-astronaut",
+    "jump": 0.44,
+    "jump_cell": "directions[2]",
+    "palette": 0.735,
+    "palette_cell": "reactions[5]",
+    "width": 0.029,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

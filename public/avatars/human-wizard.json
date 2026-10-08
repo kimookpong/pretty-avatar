@@ -1,0 +1,23 @@
+{
+  "id": "human-wizard",
+  "category": "human",
+  "label_th": "พ่อมด",
+  "description": "a chibi older man, light skin, short white beard above chest, compact purple wizard hat, plum top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "feb2ca0210cccf8abba140fd60964de3589dd5a37d84d1a511222ba284fe0d30",
+    "reactions": "3627148ba3bd3123bfb257a7e50e6d685261311895428a98c8fafcbbda6deb78"
+  },
+  "report": {
+    "name": "human-wizard",
+    "jump": 0.88,
+    "jump_cell": "directions[2]",
+    "palette": 0.751,
+    "palette_cell": "reactions[6]",
+    "width": 0.034,
+    "width_cell": "reactions[8]",
+    "ok": true
+  }
+}

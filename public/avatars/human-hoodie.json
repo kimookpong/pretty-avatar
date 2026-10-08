@@ -1,0 +1,23 @@
+{
+  "id": "human-hoodie",
+  "category": "human",
+  "label_th": "เสื้อฮู้ด",
+  "description": "a chibi young adult person, dark skin, close-cropped black hair, lilac hoodie with hood down",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "b20f499992aa1d37ca45c28490c94b3f201a7c98c60b7a87dc10629c81a16aa8",
+    "reactions": "5cc8ac9becddefa809b754c169182188aa824b7c36266502ee1ad94bb520f358"
+  },
+  "report": {
+    "name": "human-hoodie",
+    "jump": 0.44,
+    "jump_cell": "directions[1]",
+    "palette": 0.749,
+    "palette_cell": "reactions[2]",
+    "width": 0.015,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

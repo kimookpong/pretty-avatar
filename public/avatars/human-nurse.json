@@ -1,0 +1,23 @@
+{
+  "id": "human-nurse",
+  "category": "human",
+  "label_th": "พยาบาล",
+  "description": "a chibi adult woman, light skin, short black bob, compact white nurse cap, mint uniform",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "f6affec6f190fe0110b8ca1c9a868e28be416a0308e8890cd1e235ca38a7ca88",
+    "reactions": "672bed882b3320c1a5c1f3e0693e6be00f36fd2ac691928648ca556a0d6518cc"
+  },
+  "report": {
+    "name": "human-nurse",
+    "jump": 1.24,
+    "jump_cell": "reactions[0]",
+    "palette": 0.823,
+    "palette_cell": "reactions[8]",
+    "width": 0.042,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

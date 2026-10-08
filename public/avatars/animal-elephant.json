@@ -1,0 +1,23 @@
+{
+  "id": "animal-elephant",
+  "category": "animal",
+  "label_th": "ช้าง",
+  "description": "a chibi grey elephant, rounded ears kept inside cell, short curled trunk, blue top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "37f37e650acabd93b53fb1f232a4eb9e4abc8a87252fd7e78b704ee93b682bdb",
+    "reactions": "ab90c1281f7d60efe2fb020491cd527614b48bfb00ad20181a91530c9420d8ea"
+  },
+  "report": {
+    "name": "animal-elephant",
+    "jump": 0.44,
+    "jump_cell": "directions[6]",
+    "palette": 0.702,
+    "palette_cell": "reactions[6]",
+    "width": 0.036,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

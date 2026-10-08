@@ -1,0 +1,23 @@
+{
+  "id": "human-bearded",
+  "category": "human",
+  "label_th": "หนวดเครา",
+  "description": "a chibi adult man, olive skin, short dark hair, neat beard, mustard top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "e6631dfae6f4f21db4802af1492e0ce0e703a4fbda2a6bf67e162c8eb6d42432",
+    "reactions": "cab5aadb970c58ff70ae7adbf5c430b91b5b84590e8ef9e589b9ad8ce532a24f"
+  },
+  "report": {
+    "name": "human-bearded",
+    "jump": 0.62,
+    "jump_cell": "reactions[1]",
+    "palette": 0.803,
+    "palette_cell": "reactions[0]",
+    "width": 0.038,
+    "width_cell": "reactions[1]",
+    "ok": true
+  }
+}

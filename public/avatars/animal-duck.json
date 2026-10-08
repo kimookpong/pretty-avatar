@@ -1,0 +1,23 @@
+{
+  "id": "animal-duck",
+  "category": "animal",
+  "label_th": "เป็ด",
+  "description": "a chibi cream duck, rounded orange bill, small head tuft, yellow top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "ccc22a2bdba8ddfcdd5d666e5147e4e8ba953c02b1af833454e47c2b0c62f65e",
+    "reactions": "e8a16ad5a9f7aab997f096328da030e40df3011eff5d4bb3ba584215fb9fc49e"
+  },
+  "report": {
+    "name": "animal-duck",
+    "jump": 1.96,
+    "jump_cell": "directions[6]",
+    "palette": 0.817,
+    "palette_cell": "reactions[6]",
+    "width": 0.053,
+    "width_cell": "reactions[4]",
+    "ok": true
+  }
+}

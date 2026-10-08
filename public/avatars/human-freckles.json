@@ -1,0 +1,23 @@
+{
+  "id": "human-freckles",
+  "category": "human",
+  "label_th": "กระ",
+  "description": "a chibi young adult person, fair skin, short ginger hair, light freckles, sky-blue top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "01d1e4736b2bb237b46047ff2f0e2fe3a80aab5320f36d9019d7c6eaad0b1168",
+    "reactions": "f5db7ce44c5e5c61a6d1178e596d8c122b40ce02b0fba99e22103ec872c74a5e"
+  },
+  "report": {
+    "name": "human-freckles",
+    "jump": 0.44,
+    "jump_cell": "directions[0]",
+    "palette": 0.735,
+    "palette_cell": "reactions[7]",
+    "width": 0.011,
+    "width_cell": "reactions[3]",
+    "ok": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "human-bun",
+  "category": "human",
+  "label_th": "ผมมวย",
+  "description": "a chibi young adult woman, light skin, brown hair in a compact bun, pink ribbon, blush top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "062067d5d3dfec667af9f03d25cd0d85c9d06baede8598ba8db1d72874635cc7",
+    "reactions": "2c8e4f39dd31eedbdc02c688ca60df5fbd34b5869cbcee84c3c7f59304dea0a6"
+  },
+  "report": {
+    "name": "human-bun",
+    "jump": 1.24,
+    "jump_cell": "reactions[1]",
+    "palette": 0.851,
+    "palette_cell": "reactions[7]",
+    "width": 0.02,
+    "width_cell": "reactions[4]",
+    "ok": true
+  }
+}

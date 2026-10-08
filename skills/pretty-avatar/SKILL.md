@@ -1,6 +1,6 @@
 ---
 name: pretty-avatar
-description: Put a cute cursor-tracking avatar on a page with the <Pavatar /> React component from the pretty-avatar package -- a chibi character that turns its head toward the pointer and reacts when clicked. Uses one of the ready-made characters, or draws a new one (with your own image tool, the OpenAI Images API, or from a user's photo), builds its two sprite sheets into aligned atlases and checks they do not jump. Use when the user runs /pretty-avatar, asks for an avatar or mascot that follows the cursor, wants one of the existing characters on their page, or wants a new character drawn.
+description: Put a cute cursor-tracking avatar on a page with the Pavatar React component from the pretty-avatar package -- a chibi character that turns its head toward the pointer and reacts when clicked. Uses one of the ready-made characters, or draws a new one (with your own image tool, the OpenAI Images API, or from a user's photo), builds its two sprite sheets into aligned atlases and checks they do not jump. Use when the user runs /pretty-avatar, asks for an avatar or mascot that follows the cursor, wants one of the existing characters on their page, or wants a new character drawn.
 ---
 
 # /pretty-avatar
@@ -11,17 +11,37 @@ A character is two 3×3 sprite sheets: nine head directions and nine expressions
 component moves `background-position` between cells, so there is no per-frame JavaScript
 and no animation library. A character is just its two files -- nothing has to register it.
 
+## Creation presets and format
+
+For animal/human categories, a reference gallery style, or a collection request, read
+`reference/creation-format.md`. It defines 30 animal and 30 human generation presets,
+the request record, sheet order and output paths. `reference/catalog.json` is the
+machine-readable catalog; `scripts/catalog.py --list` lists ids without generating images.
+Presets require drawing unless their id appears in `reference/ready-collection.md`.
+That reference lists generated characters already built and visually reviewed. Check local
+assets first; do not assume locally generated files are already deployed remotely.
+For a collection, run `scripts/collection.py prepare` to write each character's two
+prompts and a resumable manifest without image calls. Generate each PNG with the chosen
+image tool, then run `collection.py build --id <preset-id>`. It screens and verifies in
+a staging folder before publishing atlases. Inspect direction, identity, expressions
+and clipping visually; only then use `--visual-reviewed`. `collection.py status` reports
+remaining work. Preserve the source PNGs and manifest locally for resuming.
+Use `avatar.py <name> --preset <id>` on the API route, or pass the preset description
+into the existing prompts on the built-in image-tool route. User overrides take precedence.
+For planning or asset-only requests, stop at the requested deliverable; page integration
+is required only when the user asks to put the avatar on a page.
+
 ## Which route
 
 - **The user names a ready-made character, or would take one** -- *Use a ready-made one*.
   No Python, no API key. The common case.
 - **The user wants something new, or their own likeness** -- *Draw a new one*.
 
-Both routes end in *Put it on the page*. Do not stop at files and a snippet.
+For page-integration requests, both routes end in *Put it on the page*.
 
 ## Use a ready-made one
 
-1. **Pick.** `reference/characters.md` lists them. If the user did not name one, pick one
+1. **Pick.** `reference/characters.md` lists the original six; `reference/ready-collection.md` lists the verified generated collection. If the user did not name one, pick one
    that suits the site and say which and why.
 
 2. **Fetch its two sheets** into the folder the project serves static files from --
@@ -192,7 +212,7 @@ Atlases land in `public/avatars/<name>-{directions,reactions}.webp` (or `--dest`
 source sheets stay in `characters/<name>/` so the character can be rebuilt without
 redrawing; tell the user, and let them decide whether to keep them.
 
-Then *Put it on the page* with `<Pavatar name="<name>" />`.
+When page integration was requested, *Put it on the page* with `<Pavatar name="<name>" />`.
 
 ## Going deeper
 

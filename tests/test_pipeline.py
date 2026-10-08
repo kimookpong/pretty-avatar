@@ -15,6 +15,7 @@ import unittest
 
 import numpy as np
 from PIL import Image
+from scipy import ndimage
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCRIPTS = os.path.join(REPO, 'skills', 'pretty-avatar', 'scripts')
@@ -48,6 +49,22 @@ def checkerboard(image, square=32):
 
 
 class Pipeline(unittest.TestCase):
+    def test_pair_fit_preserves_symbols_and_body_scale_ratio(self):
+        cell = np.zeros((400, 400, 4), dtype=np.float32)
+        cell[100:350, 100:300, 3] = 1
+        anchor = sheets.anchor(cell)
+        reaction = cell.copy()
+        reaction[5:30, 360:390, 3] = 1
+        base, matched = build.fit_pair([(cell, anchor)], [(reaction, anchor)], 1.0, 1.1, 320)
+        self.assertAlmostEqual(matched / base, 1.1)
+        placed = build.place(reaction, anchor, matched, 320)
+        # The detached upper-right symbol survives and stays away from tile edges.
+        ys, xs = np.nonzero(placed[..., 3] > 0.5)
+        self.assertGreater(xs.min(), 0)
+        self.assertLess(xs.max(), 319)
+        self.assertGreater(ys.min(), 0)
+        self.assertEqual(ndimage.label(placed[..., 3] > 0.5)[1], 2)
+
     @classmethod
     def setUpClass(cls):
         cls.tmp = tempfile.mkdtemp()

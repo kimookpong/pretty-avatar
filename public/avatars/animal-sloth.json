@@ -1,0 +1,23 @@
+{
+  "id": "animal-sloth",
+  "category": "animal",
+  "label_th": "สลอธ",
+  "description": "a chibi tan sloth, dark eye patches, rounded shaggy head, sand top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "8fb25ab0a898b9c25fd45394e15561767f3dda6743a5ee809247884c67760ee3",
+    "reactions": "e8580649da6e524bc50c49fba766aef975ae1f87d86829368120f46d761923b6"
+  },
+  "report": {
+    "name": "animal-sloth",
+    "jump": 1.31,
+    "jump_cell": "directions[6]",
+    "palette": 0.693,
+    "palette_cell": "reactions[5]",
+    "width": 0.046,
+    "width_cell": "reactions[6]",
+    "ok": true
+  }
+}

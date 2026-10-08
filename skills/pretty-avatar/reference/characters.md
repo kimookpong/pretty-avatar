@@ -12,3 +12,9 @@ Every character's sheets are served from
 | `kaeru` | green frog, coral top | quirky, fun, kids |
 | `pan` | panda with eye patches, mint top | calm, cosy, study and notes apps |
 | `piyo` | yellow chick with a little tuft and beak, blue top | cheerful onboarding, small apps |
+
+## Custom character available locally
+
+`hakim` — a portrait-based chibi man with short side-parted black hair and a black crewneck t-shirt. Both sheets are in this repository's `public/avatars/`. Use `<Pavatar name="hakim" />`. Remote availability has not been confirmed.
+
+`person-robot` — a silver humanoid robot with cyan eyes and navy armor, available locally in `public/avatars/`. Use `<Pavatar name="person-robot" />`. Remote availability has not been confirmed.

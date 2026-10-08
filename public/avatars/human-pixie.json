@@ -1,0 +1,23 @@
+{
+  "id": "human-pixie",
+  "category": "human",
+  "label_th": "ผมพิกซี",
+  "description": "a chibi adult woman, fair skin, short black pixie haircut, coral top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "b63b698014675b1a7733c0e84acf9d5316a1ada551f5b4750eee508570d0c2de",
+    "reactions": "0947a6cad04be18adad5734750f5eee9746f8f4046fcff4776a4e1600c88892e"
+  },
+  "report": {
+    "name": "human-pixie",
+    "jump": 0.62,
+    "jump_cell": "directions[7]",
+    "palette": 0.764,
+    "palette_cell": "reactions[2]",
+    "width": 0.026,
+    "width_cell": "reactions[3]",
+    "ok": true
+  }
+}

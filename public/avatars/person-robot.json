@@ -1,0 +1,20 @@
+{
+  "id": "person-robot",
+  "category": "human",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "person-robot",
+    "jump": 0.44,
+    "jump_cell": "directions[2]",
+    "palette": 0.744,
+    "palette_cell": "reactions[8]",
+    "width": 0.011,
+    "width_cell": "reactions[3]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "5cf8d4d298fa71ac5a4ed25a284636a52b3422296b684da165ab42f2fc78fbcf",
+    "reactions": "83bdf7b6eb74cd848268564395460d4aef2f1814ccaedd5c1eca4e210871f73f"
+  }
+}

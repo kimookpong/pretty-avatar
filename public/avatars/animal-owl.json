@@ -1,0 +1,23 @@
+{
+  "id": "animal-owl",
+  "category": "animal",
+  "label_th": "นกฮูก",
+  "description": "a chibi brown owl, cream facial disc, amber eyes, ochre top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-owl",
+    "jump": 0.44,
+    "jump_cell": "directions[0]",
+    "palette": 0.76,
+    "palette_cell": "reactions[6]",
+    "width": 0.046,
+    "width_cell": "reactions[3]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "a077fe10211d4a0315edda61a7de9a64f693c3e0726d61ad49aa4767f0070bac",
+    "reactions": "620adbd0d007352ded47754862a2b3c357e41a63d3543b7a6e079f5f35637ccc"
+  }
+}

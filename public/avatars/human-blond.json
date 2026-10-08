@@ -1,0 +1,23 @@
+{
+  "id": "human-blond",
+  "category": "human",
+  "label_th": "ผมบลอนด์",
+  "description": "a chibi adult man, fair skin, short swept blond hair, clean-shaven face, sage top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "2eed7543a4c94fc5993ce4e3745142dbb588c935c82272f16d255d5ec1f3bcea",
+    "reactions": "56dc1ce05739d941dcf97e77858a6adfbe1408e6aa889c6d3b375efddaf89a77"
+  },
+  "report": {
+    "name": "human-blond",
+    "jump": 0.44,
+    "jump_cell": "directions[2]",
+    "palette": 0.823,
+    "palette_cell": "reactions[2]",
+    "width": 0.012,
+    "width_cell": "reactions[3]",
+    "ok": true
+  }
+}

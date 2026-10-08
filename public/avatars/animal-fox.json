@@ -1,0 +1,23 @@
+{
+  "id": "animal-fox",
+  "category": "animal",
+  "label_th": "จิ้งจอก",
+  "description": "a chibi orange fox, cream cheeks, dark ear tips, forest-green top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-fox",
+    "jump": 1.31,
+    "jump_cell": "directions[0]",
+    "palette": 0.561,
+    "palette_cell": "reactions[6]",
+    "width": 0.025,
+    "width_cell": "reactions[3]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "8c15f41b3e27896a26367f4e3927abab11bee0ba9ecda938104857298504d591",
+    "reactions": "935601a73dc3b8b1bd7672c88b0fab8a77dcc747affe41327db43cc0210b931e"
+  }
+}

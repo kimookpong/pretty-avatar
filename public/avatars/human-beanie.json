@@ -1,0 +1,23 @@
+{
+  "id": "human-beanie",
+  "category": "human",
+  "label_th": "หมวกไหมพรม",
+  "description": "a chibi young adult woman, light skin, short black hair tucked under sage beanie, charcoal top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "91c60014d32c1763f1cf0262834b6503a450378b9c13b2a341c86d6e45107898",
+    "reactions": "9c8903666393fec3ddff1f6dd32cd571015d8fa265a8df9e0567149dc742bd40"
+  },
+  "report": {
+    "name": "human-beanie",
+    "jump": 1.8,
+    "jump_cell": "reactions[1]",
+    "palette": 0.87,
+    "palette_cell": "reactions[6]",
+    "width": 0.033,
+    "width_cell": "reactions[8]",
+    "ok": true
+  }
+}

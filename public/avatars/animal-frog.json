@@ -1,0 +1,23 @@
+{
+  "id": "animal-frog",
+  "category": "animal",
+  "label_th": "กบ",
+  "description": "a chibi green frog, rounded raised eyes, coral top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-frog",
+    "jump": 0.44,
+    "jump_cell": "directions[5]",
+    "palette": 0.612,
+    "palette_cell": "reactions[1]",
+    "width": 0.021,
+    "width_cell": "reactions[8]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "dfaaef49fd143b2e0caea6d8706f081f59a6125c5b1a8175d13a453908d95764",
+    "reactions": "af6d5f1612f06a419216ff5beca9d73f6ecbad6351401a6f2493e9aa6d838972"
+  }
+}

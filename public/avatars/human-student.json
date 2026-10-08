@@ -1,0 +1,23 @@
+{
+  "id": "human-student",
+  "category": "human",
+  "label_th": "นักเรียน",
+  "description": "a chibi teen person, medium skin, short neat brown hair, round glasses, navy school sweater",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "44822cebdebf0c1e8a2a6d771e1a92e2f3d0cdce119608adec3abf9d8ce1b5e7",
+    "reactions": "df6149a1b9e83c613e2bfb6f381d6fe1ea5c32089938f464ef1a1342ff8d14fc"
+  },
+  "report": {
+    "name": "human-student",
+    "jump": 0.44,
+    "jump_cell": "directions[6]",
+    "palette": 0.746,
+    "palette_cell": "reactions[2]",
+    "width": 0.041,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

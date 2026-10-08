@@ -1,0 +1,23 @@
+{
+  "id": "animal-seal",
+  "category": "animal",
+  "label_th": "แมวน้ำ",
+  "description": "a chibi silver-grey seal, round dark eyes, short whiskers, ocean-blue top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "daaee814971e2c0aa487619471f01f43548d2a6182f8c51bab2baea47234dd59",
+    "reactions": "b945c047b60433b1990ce1f65b94d28424b94abf5ceb32a11d7668d5184a1691"
+  },
+  "report": {
+    "name": "animal-seal",
+    "jump": 0.62,
+    "jump_cell": "reactions[6]",
+    "palette": 0.61,
+    "palette_cell": "reactions[6]",
+    "width": 0.02,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

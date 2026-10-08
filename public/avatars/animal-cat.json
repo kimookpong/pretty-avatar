@@ -1,0 +1,23 @@
+{
+  "id": "animal-cat",
+  "category": "animal",
+  "label_th": "แมว",
+  "description": "a chibi orange tabby cat, cream muzzle, short whiskers, teal top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-cat",
+    "jump": 0.88,
+    "jump_cell": "reactions[5]",
+    "palette": 0.716,
+    "palette_cell": "reactions[4]",
+    "width": 0.049,
+    "width_cell": "reactions[3]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "2bcb36328ac7c87076fbcd07d84db2dd1109141be3278b2deedd50894a84ee91",
+    "reactions": "38b93bc36176a538f802f317021da9311b1b486436ee83686e6dd64300a5e2a8"
+  }
+}

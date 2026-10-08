@@ -1,0 +1,23 @@
+{
+  "id": "human-chef",
+  "category": "human",
+  "label_th": "เชฟ",
+  "description": "a chibi adult man, medium skin, neat moustache, compact white chef hat, white coat and red collar",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "f8585bbba84ea5c6fccc6167f7ae2bcd7682dd5ffad055fdd8208ddd5842fa9f",
+    "reactions": "859ed9113cba9007c50d067339c4d4467d323fd36e06c5f77bdf9ff9d2b3b3c1"
+  },
+  "report": {
+    "name": "human-chef",
+    "jump": 0.44,
+    "jump_cell": "directions[0]",
+    "palette": 0.807,
+    "palette_cell": "reactions[2]",
+    "width": 0.024,
+    "width_cell": "reactions[3]",
+    "ok": true
+  }
+}

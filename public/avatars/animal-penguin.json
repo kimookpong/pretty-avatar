@@ -1,0 +1,23 @@
+{
+  "id": "animal-penguin",
+  "category": "animal",
+  "label_th": "เพนกวิน",
+  "description": "a chibi black and white penguin, small orange beak, pink cheeks, navy top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-penguin",
+    "jump": 1.31,
+    "jump_cell": "reactions[0]",
+    "palette": 0.769,
+    "palette_cell": "reactions[6]",
+    "width": 0.043,
+    "width_cell": "reactions[5]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "bed8cc3d20dca137b7090248d98cc2e80d3f88796bfd19abd1bfc480d567d392",
+    "reactions": "9e8d6e4f127fa885236c10892e84b059c339571c6ab7462cc6e8943bbb318e83"
+  }
+}

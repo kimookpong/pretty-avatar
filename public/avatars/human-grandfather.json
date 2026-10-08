@@ -1,0 +1,23 @@
+{
+  "id": "human-grandfather",
+  "category": "human",
+  "label_th": "คุณปู่",
+  "description": "a chibi older man, light skin, short silver hair, round glasses, olive sweater and white collar",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "c17fb16c816123c7055ccd4fb74603c5a4eefb48164719d7bc7cb7b01951c117",
+    "reactions": "8ae01c61de73810a1430755ed91653e07f2983fac2e59f5b5ce3ab35b105c1bf"
+  },
+  "report": {
+    "name": "human-grandfather",
+    "jump": 0.88,
+    "jump_cell": "directions[6]",
+    "palette": 0.81,
+    "palette_cell": "reactions[4]",
+    "width": 0.042,
+    "width_cell": "reactions[2]",
+    "ok": true
+  }
+}

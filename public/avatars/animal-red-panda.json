@@ -1,0 +1,23 @@
+{
+  "id": "animal-red-panda",
+  "category": "animal",
+  "label_th": "แพนด้าแดง",
+  "description": "a chibi rust-red panda, white eyebrow patches, dark cheek tips, sage top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "fe7a48adfa16ec648be72c8551bf3f7070c9937300c529b82127162ec099c75a",
+    "reactions": "e09e7baec023500b3e0fba0e1e1d413d529b8d6e42f6139bab6ded8e8f91548d"
+  },
+  "report": {
+    "name": "animal-red-panda",
+    "jump": 1.38,
+    "jump_cell": "reactions[2]",
+    "palette": 0.803,
+    "palette_cell": "reactions[4]",
+    "width": 0.064,
+    "width_cell": "reactions[3]",
+    "ok": true
+  }
+}

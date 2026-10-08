@@ -1,0 +1,23 @@
+{
+  "id": "animal-pug",
+  "category": "animal",
+  "label_th": "ปั๊ก",
+  "description": "a chibi fawn pug, dark muzzle, folded ears, mustard top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "f01ee4036e3a19056655f1c13a3456e825c002129fe2c95f770b564545ae78c6",
+    "reactions": "2409503fa382bc432f10ba218ca3c4475208c2785aed362af2168af5e8371009"
+  },
+  "report": {
+    "name": "animal-pug",
+    "jump": 0.44,
+    "jump_cell": "directions[1]",
+    "palette": 0.649,
+    "palette_cell": "reactions[6]",
+    "width": 0.026,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

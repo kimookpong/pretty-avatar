@@ -1,0 +1,23 @@
+{
+  "id": "human-silver-bob",
+  "category": "human",
+  "label_th": "ผมบ๊อบสีเงิน",
+  "description": "a chibi older woman, brown skin, short silver bob above shoulders, teal top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "a3100d6ce53f7634efcb174237133036c634463fa31d29395c4b54e204989982",
+    "reactions": "e484994e953bb1a9c8e6a4729459be34ac6fd6d01308dd739da2902b68019e4a"
+  },
+  "report": {
+    "name": "human-silver-bob",
+    "jump": 0.88,
+    "jump_cell": "reactions[0]",
+    "palette": 0.644,
+    "palette_cell": "reactions[2]",
+    "width": 0.023,
+    "width_cell": "reactions[6]",
+    "ok": true
+  }
+}

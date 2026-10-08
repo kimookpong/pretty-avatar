@@ -1,0 +1,23 @@
+{
+  "id": "animal-cow",
+  "category": "animal",
+  "label_th": "วัว",
+  "description": "a chibi white cow, black patches, short horns, pink muzzle, denim-blue top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "079a1e6d3fdca08ca1ad3ac43c498f6d2f16a2d239755e24c11dbbbfedaa6d30",
+    "reactions": "5d2677c9176d98169302e7f57e9c702dab2d0abdf83eaf29eaa56b79a33458a8"
+  },
+  "report": {
+    "name": "animal-cow",
+    "jump": 0.88,
+    "jump_cell": "directions[5]",
+    "palette": 0.652,
+    "palette_cell": "reactions[8]",
+    "width": 0.025,
+    "width_cell": "reactions[2]",
+    "ok": true
+  }
+}

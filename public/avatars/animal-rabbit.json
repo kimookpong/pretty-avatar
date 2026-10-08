@@ -1,0 +1,23 @@
+{
+  "id": "animal-rabbit",
+  "category": "animal",
+  "label_th": "กระต่าย",
+  "description": "a chibi white rabbit, upright pink-lined ears, lilac top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-rabbit",
+    "jump": 0.88,
+    "jump_cell": "reactions[2]",
+    "palette": 0.637,
+    "palette_cell": "reactions[4]",
+    "width": 0.047,
+    "width_cell": "reactions[8]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "88105cdfd0b943f0dbc210293100bc4c6aa5f812c28f63bd68072f7427ff1312",
+    "reactions": "89d3c673b331aef384a282e836e4149724d65300eea42bd841840e8531060a6c"
+  }
+}

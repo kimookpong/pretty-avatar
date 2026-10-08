@@ -1,0 +1,23 @@
+{
+  "id": "animal-hippo",
+  "category": "animal",
+  "label_th": "ฮิปโป",
+  "description": "a chibi lavender-grey hippo, round muzzle, small ears, coral top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "ccdca86d0a760125ee53d6e74bad6247d043362d31dad6a52db0eab9e39658f2",
+    "reactions": "a3e633d0d9d2c87574a5d63b8b2596aca41263b6d0c8d03274720f8e26b77395"
+  },
+  "report": {
+    "name": "animal-hippo",
+    "jump": 1.31,
+    "jump_cell": "reactions[1]",
+    "palette": 0.721,
+    "palette_cell": "reactions[6]",
+    "width": 0.053,
+    "width_cell": "reactions[8]",
+    "ok": true
+  }
+}

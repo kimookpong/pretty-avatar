@@ -1,0 +1,23 @@
+{
+  "id": "human-bald",
+  "category": "human",
+  "label_th": "ศีรษะล้าน",
+  "description": "a chibi adult man, brown skin, bald head, gentle eyebrows, blue crew-neck top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "1e8e719a068672c89a53d76cff632be935d784acc09c52de4e0634a25204d1ee",
+    "reactions": "f5bce05d857bf5119783ce89a82fd9a79af4cdd0302f890260f957c0bcbc4fec"
+  },
+  "report": {
+    "name": "human-bald",
+    "jump": 0.44,
+    "jump_cell": "directions[3]",
+    "palette": 0.652,
+    "palette_cell": "reactions[2]",
+    "width": 0.015,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

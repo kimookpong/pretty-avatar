@@ -1,0 +1,23 @@
+{
+  "id": "animal-deer",
+  "category": "animal",
+  "label_th": "กวาง",
+  "description": "a chibi tan deer, white cheek spots, short compact antler buds, sage top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "3fbe74b2cd6e6b1df26b357e1f9ab5ba1105b54f98c1213b3057242d0cbe9604",
+    "reactions": "28f8057ea7409d19ab40b46c8236ca5433a9770a1a64fa182c7aadd13c8fbb37"
+  },
+  "report": {
+    "name": "animal-deer",
+    "jump": 0.44,
+    "jump_cell": "reactions[1]",
+    "palette": 0.73,
+    "palette_cell": "reactions[8]",
+    "width": 0.019,
+    "width_cell": "reactions[0]",
+    "ok": true
+  }
+}

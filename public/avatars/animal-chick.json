@@ -1,0 +1,23 @@
+{
+  "id": "animal-chick",
+  "category": "animal",
+  "label_th": "ลูกเจี๊ยบ",
+  "description": "a chibi yellow chick, tiny orange beak, small tuft, blue top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-chick",
+    "jump": 1.75,
+    "jump_cell": "reactions[2]",
+    "palette": 0.664,
+    "palette_cell": "reactions[6]",
+    "width": 0.032,
+    "width_cell": "reactions[7]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "3887780497eb70da2cfd6bc7eba9ef7862d37267a8dab5c23d86c36ed844ed0a",
+    "reactions": "e7e5532736bc0d09adff1e91a96b27a9ff18d97255e34aeca99c21595cb036b7"
+  }
+}

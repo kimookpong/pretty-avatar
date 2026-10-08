@@ -1,0 +1,23 @@
+{
+  "id": "human-black-glasses",
+  "category": "human",
+  "label_th": "แว่นดำ",
+  "description": "a chibi adult man, medium skin, short black hair, rectangular dark glasses, stubble, black top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "45567ae6f2c004d5754a1bcdb8b4643c10613c3a6888d69c4eecd897e62f1e39",
+    "reactions": "59906d4a9eb1d1b236fe3d9eec6f178138726fceaf1c3e0ed9f374491f41e5cc"
+  },
+  "report": {
+    "name": "human-black-glasses",
+    "jump": 0.88,
+    "jump_cell": "directions[1]",
+    "palette": 0.821,
+    "palette_cell": "reactions[6]",
+    "width": 0.03,
+    "width_cell": "reactions[1]",
+    "ok": true
+  }
+}

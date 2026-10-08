@@ -1,0 +1,23 @@
+{
+  "id": "human-ponytail",
+  "category": "human",
+  "label_th": "ผมหางม้า",
+  "description": "a chibi adult woman, tan skin, black ponytail tied behind head away from shoulders, mint top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "bcf42ff8a71a79a4c14873ab03ea513c174beb2dbc1b08bacefb66a409cbc24c",
+    "reactions": "c719cd7df1b10da6f8a79b52ec5836bee163f0bd1dd6bd8358b176dc096a79c6"
+  },
+  "report": {
+    "name": "human-ponytail",
+    "jump": 0.62,
+    "jump_cell": "directions[0]",
+    "palette": 0.747,
+    "palette_cell": "reactions[2]",
+    "width": 0.026,
+    "width_cell": "reactions[3]",
+    "ok": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "animal-koala",
+  "category": "animal",
+  "label_th": "โคอาลา",
+  "description": "a chibi grey koala, fluffy round ears, charcoal nose, sky-blue top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-koala",
+    "jump": 0.44,
+    "jump_cell": "directions[1]",
+    "palette": 0.754,
+    "palette_cell": "reactions[5]",
+    "width": 0.028,
+    "width_cell": "reactions[4]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "18b944d0a1a376925251f77ef5c055e227766c966b80844f9fd50e71ff338d1f",
+    "reactions": "21c5d50e069b03c365fa24a7fed047ac221edb6e1b8b94266a03797043d3ca64"
+  }
+}

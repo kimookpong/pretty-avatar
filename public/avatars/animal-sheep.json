@@ -1,0 +1,23 @@
+{
+  "id": "animal-sheep",
+  "category": "animal",
+  "label_th": "แกะ",
+  "description": "a chibi cream sheep, compact wool cap, grey floppy ears, pink top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "8b6267ba33dcb6ddf723f8ec280270d2c2c4698a25bc2a50089d925b2ee2f89d",
+    "reactions": "ed11f5e539f2811321e15355a98fa8ed0d7135ffb80ec271eeb9f503d4065aaf"
+  },
+  "report": {
+    "name": "animal-sheep",
+    "jump": 1.31,
+    "jump_cell": "reactions[6]",
+    "palette": 0.658,
+    "palette_cell": "reactions[6]",
+    "width": 0.042,
+    "width_cell": "reactions[6]",
+    "ok": true
+  }
+}

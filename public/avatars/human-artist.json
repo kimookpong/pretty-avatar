@@ -1,0 +1,23 @@
+{
+  "id": "human-artist",
+  "category": "human",
+  "label_th": "ศิลปิน",
+  "description": "a chibi adult woman, olive skin, short wavy dark hair, compact navy beret, rust top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "049670e779650cf9820f68dcc44e0fcd85c6f6f9da623407eb5a399e8d07c8fd",
+    "reactions": "73af9319d96fc467b9877ad5288cd04e18ac8cffa2fdbe9f37c34ea08754c57a"
+  },
+  "report": {
+    "name": "human-artist",
+    "jump": 0.44,
+    "jump_cell": "directions[1]",
+    "palette": 0.671,
+    "palette_cell": "reactions[6]",
+    "width": 0.034,
+    "width_cell": "reactions[6]",
+    "ok": true
+  }
+}

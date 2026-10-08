@@ -1,0 +1,23 @@
+{
+  "id": "human-curly-glasses",
+  "category": "human",
+  "label_th": "ผมหยิกและแว่น",
+  "description": "a chibi adult woman, light skin, short auburn curls above shoulders, round glasses, teal top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "human-curly-glasses",
+    "jump": 0.98,
+    "jump_cell": "directions[0]",
+    "palette": 0.796,
+    "palette_cell": "reactions[4]",
+    "width": 0.03,
+    "width_cell": "reactions[5]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "b8b7d120f5e8f1db6fd6fc6f150d30df90b3536200759004c69324ccf17328e9",
+    "reactions": "9cb38f1c1b7064a0f2a9fe8ab18a819f51aeb23652b83dd9ecd26f21e8554b7c"
+  }
+}

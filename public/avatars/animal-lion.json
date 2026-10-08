@@ -1,0 +1,23 @@
+{
+  "id": "animal-lion",
+  "category": "animal",
+  "label_th": "สิงโต",
+  "description": "a chibi tan lion, compact brown mane, round ears, rust top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-lion",
+    "jump": 1.8,
+    "jump_cell": "reactions[2]",
+    "palette": 0.709,
+    "palette_cell": "reactions[2]",
+    "width": 0.057,
+    "width_cell": "reactions[8]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "77ccd2e225d954252562af4d48370f6b072403b62bb70c38ab98329dc1eee91e",
+    "reactions": "75f3fafd028cbaeed9a729488114e08a334cf00c0e2c677bcb648a8841751ab1"
+  }
+}

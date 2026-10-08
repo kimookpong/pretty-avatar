@@ -11,3 +11,5 @@ site-build
 __pycache__/
 # Source sheets from scripts/samples.py; only the built atlases in public/avatars are kept.
 characters/
+
+.venv/

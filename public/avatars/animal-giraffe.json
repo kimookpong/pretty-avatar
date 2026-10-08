@@ -1,0 +1,23 @@
+{
+  "id": "animal-giraffe",
+  "category": "animal",
+  "label_th": "ยีราฟ",
+  "description": "a chibi golden giraffe, brown patches, small ossicones, short visible neck, mint top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "191999930d5fc0da6b2b862af41cfb7531186a600deb36f0147f33675299ee92",
+    "reactions": "dbd3ead47df7956045a5fac9068dee5ba99531b931d7a654f3158a4fcc84aa83"
+  },
+  "report": {
+    "name": "animal-giraffe",
+    "jump": 0.44,
+    "jump_cell": "reactions[1]",
+    "palette": 0.724,
+    "palette_cell": "reactions[6]",
+    "width": 0.056,
+    "width_cell": "reactions[4]",
+    "ok": true
+  }
+}

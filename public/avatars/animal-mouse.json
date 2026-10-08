@@ -1,0 +1,23 @@
+{
+  "id": "animal-mouse",
+  "category": "animal",
+  "label_th": "หนู",
+  "description": "a chibi grey mouse, round pink-lined ears, tiny pink nose, rose top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-mouse",
+    "jump": 0.88,
+    "jump_cell": "reactions[0]",
+    "palette": 0.742,
+    "palette_cell": "reactions[6]",
+    "width": 0.043,
+    "width_cell": "reactions[8]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "44b26de7456a6982c3aa01bf98635a624fba088bce2746f587ac5362be37855c",
+    "reactions": "ebaed55c61dae5fa05b216c4f81ae6988ba8e8e29a5b7a8ed0c5d7efa7aa1d6e"
+  }
+}

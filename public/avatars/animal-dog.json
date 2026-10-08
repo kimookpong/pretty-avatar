@@ -1,0 +1,23 @@
+{
+  "id": "animal-dog",
+  "category": "animal",
+  "label_th": "สุนัข",
+  "description": "a chibi golden puppy, floppy ears, cream muzzle, blue top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-dog",
+    "jump": 1.58,
+    "jump_cell": "directions[6]",
+    "palette": 0.541,
+    "palette_cell": "reactions[1]",
+    "width": 0.043,
+    "width_cell": "reactions[4]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "426701575cf7529fd9f42bf1c50a1e3207e30a59b6dbe0bf6a25c61e2d0fd0cd",
+    "reactions": "a3259bea47e9b6879140fce18440ea0ba7bffb1da8d5cae50112a879fe61402b"
+  }
+}

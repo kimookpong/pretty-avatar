@@ -1,0 +1,362 @@
+[
+  {
+    "id": "animal-cat",
+    "category": "animal",
+    "label_th": "แมว",
+    "description": "a chibi orange tabby cat, cream muzzle, short whiskers, teal top"
+  },
+  {
+    "id": "animal-dog",
+    "category": "animal",
+    "label_th": "สุนัข",
+    "description": "a chibi golden puppy, floppy ears, cream muzzle, blue top"
+  },
+  {
+    "id": "animal-rabbit",
+    "category": "animal",
+    "label_th": "กระต่าย",
+    "description": "a chibi white rabbit, upright pink-lined ears, lilac top"
+  },
+  {
+    "id": "animal-bear",
+    "category": "animal",
+    "label_th": "หมี",
+    "description": "a chibi brown bear, round ears, cream muzzle, yellow top"
+  },
+  {
+    "id": "animal-panda",
+    "category": "animal",
+    "label_th": "แพนด้า",
+    "description": "a chibi panda, black eye patches, round ears, mint top"
+  },
+  {
+    "id": "animal-frog",
+    "category": "animal",
+    "label_th": "กบ",
+    "description": "a chibi green frog, rounded raised eyes, coral top"
+  },
+  {
+    "id": "animal-chick",
+    "category": "animal",
+    "label_th": "ลูกเจี๊ยบ",
+    "description": "a chibi yellow chick, tiny orange beak, small tuft, blue top"
+  },
+  {
+    "id": "animal-fox",
+    "category": "animal",
+    "label_th": "จิ้งจอก",
+    "description": "a chibi orange fox, cream cheeks, dark ear tips, forest-green top"
+  },
+  {
+    "id": "animal-tiger",
+    "category": "animal",
+    "label_th": "เสือ",
+    "description": "a chibi orange tiger, black stripes, white muzzle, green eyes, sage-green top"
+  },
+  {
+    "id": "animal-lion",
+    "category": "animal",
+    "label_th": "สิงโต",
+    "description": "a chibi tan lion, compact brown mane, round ears, rust top"
+  },
+  {
+    "id": "animal-hedgehog",
+    "category": "animal",
+    "label_th": "เม่น",
+    "description": "a chibi brown hedgehog, compact rounded spines, cream face, olive top"
+  },
+  {
+    "id": "animal-koala",
+    "category": "animal",
+    "label_th": "โคอาลา",
+    "description": "a chibi grey koala, fluffy round ears, charcoal nose, sky-blue top"
+  },
+  {
+    "id": "animal-mouse",
+    "category": "animal",
+    "label_th": "หนู",
+    "description": "a chibi grey mouse, round pink-lined ears, tiny pink nose, rose top"
+  },
+  {
+    "id": "animal-otter",
+    "category": "animal",
+    "label_th": "นาก",
+    "description": "a chibi brown otter, cream muzzle, small round ears, turquoise top"
+  },
+  {
+    "id": "animal-owl",
+    "category": "animal",
+    "label_th": "นกฮูก",
+    "description": "a chibi brown owl, cream facial disc, amber eyes, ochre top"
+  },
+  {
+    "id": "animal-penguin",
+    "category": "animal",
+    "label_th": "เพนกวิน",
+    "description": "a chibi black and white penguin, small orange beak, pink cheeks, navy top"
+  },
+  {
+    "id": "animal-pug",
+    "category": "animal",
+    "label_th": "ปั๊ก",
+    "description": "a chibi fawn pug, dark muzzle, folded ears, mustard top"
+  },
+  {
+    "id": "animal-raccoon",
+    "category": "animal",
+    "label_th": "แรคคูน",
+    "description": "a chibi grey raccoon, dark eye mask, pointed ears, teal crew-neck shirt"
+  },
+  {
+    "id": "animal-red-panda",
+    "category": "animal",
+    "label_th": "แพนด้าแดง",
+    "description": "a chibi rust-red panda, white eyebrow patches, dark cheek tips, sage top"
+  },
+  {
+    "id": "animal-sheep",
+    "category": "animal",
+    "label_th": "แกะ",
+    "description": "a chibi cream sheep, compact wool cap, grey floppy ears, pink top"
+  },
+  {
+    "id": "animal-sloth",
+    "category": "animal",
+    "label_th": "สลอธ",
+    "description": "a chibi tan sloth, dark eye patches, rounded shaggy head, sand top"
+  },
+  {
+    "id": "animal-hamster",
+    "category": "animal",
+    "label_th": "แฮมสเตอร์",
+    "description": "a chibi golden hamster, plump cream cheeks, tiny round ears, peach top"
+  },
+  {
+    "id": "animal-squirrel",
+    "category": "animal",
+    "label_th": "กระรอก",
+    "description": "a chibi red-brown squirrel, pointed tufted ears, cream cheeks, leaf-green top"
+  },
+  {
+    "id": "animal-deer",
+    "category": "animal",
+    "label_th": "กวาง",
+    "description": "a chibi tan deer, white cheek spots, short compact antler buds, sage top"
+  },
+  {
+    "id": "animal-giraffe",
+    "category": "animal",
+    "label_th": "ยีราฟ",
+    "description": "a chibi golden giraffe, brown patches, small ossicones, short visible neck, mint top"
+  },
+  {
+    "id": "animal-elephant",
+    "category": "animal",
+    "label_th": "ช้าง",
+    "description": "a chibi grey elephant, rounded ears kept inside cell, short curled trunk, blue top"
+  },
+  {
+    "id": "animal-hippo",
+    "category": "animal",
+    "label_th": "ฮิปโป",
+    "description": "a chibi lavender-grey hippo, round muzzle, small ears, coral top"
+  },
+  {
+    "id": "animal-cow",
+    "category": "animal",
+    "label_th": "วัว",
+    "description": "a chibi white cow, black patches, short horns, pink muzzle, denim-blue top"
+  },
+  {
+    "id": "animal-duck",
+    "category": "animal",
+    "label_th": "เป็ด",
+    "description": "a chibi cream duck, rounded orange bill, small head tuft, yellow top"
+  },
+  {
+    "id": "animal-seal",
+    "category": "animal",
+    "label_th": "แมวน้ำ",
+    "description": "a chibi silver-grey seal, round dark eyes, short whiskers, ocean-blue top"
+  },
+  {
+    "id": "human-bun",
+    "category": "human",
+    "label_th": "ผมมวย",
+    "description": "a chibi young adult woman, light skin, brown hair in a compact bun, pink ribbon, blush top"
+  },
+  {
+    "id": "human-bearded",
+    "category": "human",
+    "label_th": "หนวดเครา",
+    "description": "a chibi adult man, olive skin, short dark hair, neat beard, mustard top"
+  },
+  {
+    "id": "human-builder",
+    "category": "human",
+    "label_th": "ช่างก่อสร้าง",
+    "description": "a chibi adult woman, brown skin, compact yellow safety helmet, charcoal work top"
+  },
+  {
+    "id": "human-cap",
+    "category": "human",
+    "label_th": "หมวกแก๊ป",
+    "description": "a chibi young adult man, light skin, short chestnut hair, compact red cap, green top"
+  },
+  {
+    "id": "human-chef",
+    "category": "human",
+    "label_th": "เชฟ",
+    "description": "a chibi adult man, medium skin, neat moustache, compact white chef hat, white coat and red collar"
+  },
+  {
+    "id": "human-curly-glasses",
+    "category": "human",
+    "label_th": "ผมหยิกและแว่น",
+    "description": "a chibi adult woman, light skin, short auburn curls above shoulders, round glasses, teal top"
+  },
+  {
+    "id": "human-grandfather",
+    "category": "human",
+    "label_th": "คุณปู่",
+    "description": "a chibi older man, light skin, short silver hair, round glasses, olive sweater and white collar"
+  },
+  {
+    "id": "human-grandmother",
+    "category": "human",
+    "label_th": "คุณย่า",
+    "description": "a chibi older woman, light skin, silver hair in a low compact bun, round glasses, rose cardigan"
+  },
+  {
+    "id": "human-hijab",
+    "category": "human",
+    "label_th": "ฮิญาบ",
+    "description": "a chibi adult woman, warm brown skin, simple fitted lavender hijab hood ending at the jawline, navy high-neck top, no loose scarf folds over the chest"
+  },
+  {
+    "id": "human-black-glasses",
+    "category": "human",
+    "label_th": "แว่นดำ",
+    "description": "a chibi adult man, medium skin, short black hair, rectangular dark glasses, stubble, black top"
+  },
+  {
+    "id": "human-nurse",
+    "category": "human",
+    "label_th": "พยาบาล",
+    "description": "a chibi adult woman, light skin, short black bob, compact white nurse cap, mint uniform"
+  },
+  {
+    "id": "human-headscarf",
+    "category": "human",
+    "label_th": "ผ้าโพกศีรษะ",
+    "description": "a chibi adult woman, dark skin, fitted red headscarf, navy top with white collar"
+  },
+  {
+    "id": "human-pilot",
+    "category": "human",
+    "label_th": "นักบิน",
+    "description": "a chibi adult woman, dark skin, compact auburn curls, small goggles resting on head, teal jacket"
+  },
+  {
+    "id": "human-turban",
+    "category": "human",
+    "label_th": "ผ้าโพกแบบเทอร์บัน",
+    "description": "a chibi adult man, brown skin, compact burgundy turban, neat black beard, grey top"
+  },
+  {
+    "id": "human-beanie",
+    "category": "human",
+    "label_th": "หมวกไหมพรม",
+    "description": "a chibi young adult woman, light skin, short black hair tucked under sage beanie, charcoal top"
+  },
+  {
+    "id": "human-wizard",
+    "category": "human",
+    "label_th": "พ่อมด",
+    "description": "a chibi older man, light skin, short white beard above chest, compact purple wizard hat, plum top"
+  },
+  {
+    "id": "human-astronaut",
+    "category": "human",
+    "label_th": "นักบินอวกาศ",
+    "description": "a chibi adult woman, dark skin, compact white space helmet with open clear visor, white suit collar"
+  },
+  {
+    "id": "human-bald",
+    "category": "human",
+    "label_th": "ศีรษะล้าน",
+    "description": "a chibi adult man, brown skin, bald head, gentle eyebrows, blue crew-neck top"
+  },
+  {
+    "id": "human-afro",
+    "category": "human",
+    "label_th": "ผมแอฟโฟร",
+    "description": "a chibi adult woman, dark skin, compact rounded afro, small gold stud earrings, yellow top"
+  },
+  {
+    "id": "human-pixie",
+    "category": "human",
+    "label_th": "ผมพิกซี",
+    "description": "a chibi adult woman, fair skin, short black pixie haircut, coral top"
+  },
+  {
+    "id": "human-bob",
+    "category": "human",
+    "label_th": "ผมบ๊อบ",
+    "description": "a chibi adult woman, medium skin, straight chin-length brown bob above shoulders, lavender top"
+  },
+  {
+    "id": "human-ponytail",
+    "category": "human",
+    "label_th": "ผมหางม้า",
+    "description": "a chibi adult woman, tan skin, black ponytail tied behind head away from shoulders, mint top"
+  },
+  {
+    "id": "human-freckles",
+    "category": "human",
+    "label_th": "กระ",
+    "description": "a chibi young adult person, fair skin, short ginger hair, light freckles, sky-blue top"
+  },
+  {
+    "id": "human-silver-bob",
+    "category": "human",
+    "label_th": "ผมบ๊อบสีเงิน",
+    "description": "a chibi older woman, brown skin, short silver bob above shoulders, teal top"
+  },
+  {
+    "id": "human-locs",
+    "category": "human",
+    "label_th": "ผมล็อกมัดขึ้น",
+    "description": "a chibi adult man, dark skin, short locs gathered behind head, cream top"
+  },
+  {
+    "id": "human-doctor",
+    "category": "human",
+    "label_th": "แพทย์",
+    "description": "a chibi adult man, medium skin, short dark hair, round glasses, white coat over blue collar"
+  },
+  {
+    "id": "human-artist",
+    "category": "human",
+    "label_th": "ศิลปิน",
+    "description": "a chibi adult woman, olive skin, short wavy dark hair, compact navy beret, rust top"
+  },
+  {
+    "id": "human-student",
+    "category": "human",
+    "label_th": "นักเรียน",
+    "description": "a chibi teen person, medium skin, short neat brown hair, round glasses, navy school sweater"
+  },
+  {
+    "id": "human-hoodie",
+    "category": "human",
+    "label_th": "เสื้อฮู้ด",
+    "description": "a chibi young adult person, dark skin, close-cropped black hair, lilac hoodie with hood down"
+  },
+  {
+    "id": "human-blond",
+    "category": "human",
+    "label_th": "ผมบลอนด์",
+    "description": "a chibi adult man, fair skin, short swept blond hair, clean-shaven face, sage top"
+  }
+]

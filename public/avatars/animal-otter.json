@@ -1,0 +1,23 @@
+{
+  "id": "animal-otter",
+  "category": "animal",
+  "label_th": "นาก",
+  "description": "a chibi brown otter, cream muzzle, small round ears, turquoise top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "report": {
+    "name": "animal-otter",
+    "jump": 0.88,
+    "jump_cell": "reactions[0]",
+    "palette": 0.646,
+    "palette_cell": "reactions[8]",
+    "width": 0.032,
+    "width_cell": "reactions[2]",
+    "ok": true
+  },
+  "source_hashes": {
+    "directions": "f6ce22d5685005ce98173e56592047e4de9c3d98fd0bae20d1f928bf791e868d",
+    "reactions": "a30bbc1b2d24beba237f3fe4cc668c9f8da63b2dafec75501a62e53d4c02a8ae"
+  }
+}

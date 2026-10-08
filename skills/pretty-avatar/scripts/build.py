@@ -126,6 +126,24 @@ def atlas(tiles, tile):
     return Image.fromarray((out * 255).round().clip(0, 255).astype(np.uint8), 'RGBA')
 
 
+def fit_pair(directions, reactions, base, matched, tile):
+    """Keep floating symbols inside tiles while preserving the matched body ratio."""
+    factor = 1.0
+    for cells, scale in ((directions, base), (reactions, matched)):
+        for cell, anchor in cells:
+            ys, xs = np.nonzero(cell[..., 3] > 0.01)
+            if not len(xs):
+                continue
+            for extent, space in (
+                (anchor.centre - xs.min(), tile * (0.5 - SIDE_MARGIN)),
+                (xs.max() + 1 - anchor.centre, tile * (0.5 - SIDE_MARGIN)),
+                (anchor.bottom - ys.min(), tile * (BOTTOM - 0.02)),
+            ):
+                if extent > 0:
+                    factor = min(factor, space / (extent * scale))
+    return base * factor, matched * factor
+
+
 def save(image, path):
     """Write next to the target and rename over it, so a page never loads half a file."""
     folder = os.path.dirname(path) or '.'
@@ -157,6 +175,7 @@ def build(name, src, dest, tile=TILE):
 
     base = directions_scale([a for _, a in directions], tile)
     matched = match_scale(directions, reactions, base, tile)
+    base, matched = fit_pair(directions, reactions, base, matched, tile)
 
     outputs = {}
     for kind, cells, scale in (('directions', directions, base), ('reactions', reactions, matched)):

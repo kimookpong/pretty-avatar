@@ -1,0 +1,23 @@
+{
+  "id": "animal-squirrel",
+  "category": "animal",
+  "label_th": "กระรอก",
+  "description": "a chibi red-brown squirrel, pointed tufted ears, cream cheeks, leaf-green top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "dae67524b1da8089657165930f556a9f266510917f7f0020bf4de8d419ff5a67",
+    "reactions": "c25e52909ba1bd20bb897ac849514fedbf8f12923c1f5b731eb1c425a8518a11"
+  },
+  "report": {
+    "name": "animal-squirrel",
+    "jump": 0.62,
+    "jump_cell": "directions[0]",
+    "palette": 0.751,
+    "palette_cell": "reactions[6]",
+    "width": 0.034,
+    "width_cell": "reactions[5]",
+    "ok": true
+  }
+}

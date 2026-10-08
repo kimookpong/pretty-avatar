@@ -60,6 +60,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     parser.add_argument('name')
     parser.add_argument('--describe', default='')
+    parser.add_argument('--preset', help='Generation preset id from catalog.py --list')
     parser.add_argument('--reference', help='a photo or drawing to redraw')
     parser.add_argument('--style', default='colour', choices=sorted(STYLES))
     parser.add_argument('--only', choices=['directions', 'reactions'],
@@ -71,6 +72,14 @@ def main():
     parser.add_argument('--dest', default=os.path.join(root, 'public', 'avatars'))
     parser.add_argument('--retries', type=int, default=2)
     args = parser.parse_args()
+
+    if args.preset:
+        from catalog import preset
+        try:
+            selected = preset(args.preset)
+        except ValueError as error:
+            parser.error(str(error))
+        args.describe = selected['description'] + ('. Additional details: ' + args.describe if args.describe else '')
 
     if not args.skip_generate and not args.describe and not args.reference:
         sys.exit('Give --describe or --reference, or --skip-generate to rebuild existing sheets.')

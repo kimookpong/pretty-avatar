@@ -1,0 +1,23 @@
+{
+  "id": "human-bob",
+  "category": "human",
+  "label_th": "ผมบ๊อบ",
+  "description": "a chibi adult woman, medium skin, straight chin-length brown bob above shoulders, lavender top",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "a10265ba75443f1bb9fe9e34c8fae1bc26a01c9a2aec170cdfc3507d2e982cc6",
+    "reactions": "ce7cb7b0e30c23da7379e4850a9e5898e14d9d71cfe131136e3940873b669ff5"
+  },
+  "report": {
+    "name": "human-bob",
+    "jump": 0.98,
+    "jump_cell": "reactions[1]",
+    "palette": 0.8,
+    "palette_cell": "reactions[6]",
+    "width": 0.029,
+    "width_cell": "reactions[3]",
+    "ok": true
+  }
+}

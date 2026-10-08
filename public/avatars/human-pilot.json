@@ -1,0 +1,23 @@
+{
+  "id": "human-pilot",
+  "category": "human",
+  "label_th": "นักบิน",
+  "description": "a chibi adult woman, dark skin, compact auburn curls, small goggles resting on head, teal jacket",
+  "style": "colour",
+  "status": "verified",
+  "visual_review": true,
+  "source_hashes": {
+    "directions": "9ece9449c29362f45a881cdc78dba19b2efb93df5770b4079456e186ce378c1d",
+    "reactions": "252fc6d5f811e24da4f7406cad8e22225370a2004648c7b7f771fb7fe215ce25"
+  },
+  "report": {
+    "name": "human-pilot",
+    "jump": 0.98,
+    "jump_cell": "reactions[1]",
+    "palette": 0.653,
+    "palette_cell": "reactions[1]",
+    "width": 0.038,
+    "width_cell": "reactions[3]",
+    "ok": true
+  }
+}
