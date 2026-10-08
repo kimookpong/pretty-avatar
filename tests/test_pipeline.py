@@ -4,6 +4,7 @@
 """
 import base64
 import io
+import json
 import os
 import shutil
 import subprocess
@@ -172,6 +173,47 @@ class Generate(unittest.TestCase):
         self.assertEqual([c['background'] for c in images.calls], ['transparent', 'opaque', 'opaque'])
         self.assertNotIn('transparen', images.calls[1]['prompt'].lower())
         self.assertIn('#00FF00', images.calls[1]['prompt'])
+        for sheet_name in ('directions', 'reactions'):
+            self.assertEqual(screen.screen(os.path.join(self.tmp, 'kuma', f'{sheet_name}.png'))['alpha'], 'ok')
+
+
+class RealSdk(unittest.TestCase):
+    """The same route through the real openai SDK, with only the HTTP layer faked, so a
+    renamed parameter or endpoint in the SDK shows up here rather than on a user's key."""
+
+    def setUp(self):
+        try:
+            import httpx
+            import openai
+        except ImportError:
+            self.skipTest('openai not installed')
+        self.tmp = tempfile.mkdtemp()
+        self.requests = []
+        fake = FakeImages(alpha=True)
+
+        def handler(request):
+            body = request.read()
+            self.requests.append((request.url.path, body))
+            edits = request.url.path.endswith('/images/edits')
+            options = {'background': 'transparent' if b'transparent' in body else 'opaque'}
+            result = fake._respond('', edits, **options)
+            return httpx.Response(200, json={'created': 0, 'data': [{'b64_json': result.data[0].b64_json}]})
+
+        self.api = openai.OpenAI(api_key='test', http_client=httpx.Client(transport=httpx.MockTransport(handler)))
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def test_generate_then_edit_with_the_first_sheet(self):
+        generate.generate('kuma', describe='a chibi bear', src=self.tmp, api=self.api)
+        paths = [path for path, _ in self.requests]
+        self.assertEqual(paths, ['/v1/images/generations', '/v1/images/edits'])
+        generations = json.loads(self.requests[0][1])
+        self.assertEqual(generations['model'], generate.DEFAULT_MODEL)
+        self.assertEqual(generations['background'], 'transparent')
+        # The edit is multipart, carrying the directions sheet as the reference image.
+        self.assertIn(b'name="image[]"', self.requests[1][1])
+        self.assertIn(b'\x89PNG', self.requests[1][1])
         for sheet_name in ('directions', 'reactions'):
             self.assertEqual(screen.screen(os.path.join(self.tmp, 'kuma', f'{sheet_name}.png'))['alpha'], 'ok')
 
