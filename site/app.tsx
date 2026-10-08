@@ -1,10 +1,45 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Pavatar } from '../src'
-import type { Reaction } from '../src'
-import { BASE_PATH, CAST, REPO, sheetUrl } from './cast'
-import type { CastName } from './cast'
+import { useEffect, useRef, useState } from 'react'
+import type { CSSProperties, ReactNode, RefObject } from 'react'
+import { DIRECTIONS, Pavatar, REACTIONS } from '../src'
+import type { Direction, Reaction } from '../src'
+import { AGENTS, BASE_PATH, CAST, REPO, sheetUrl, SKILL_COMMAND } from './cast'
+import type { CastName, Character } from './cast'
 import { initialLang, saveLang, TEXT } from './i18n'
 import type { Lang, Text } from './i18n'
+
+const FINE = typeof window !== 'undefined' && window.matchMedia?.('(hover: hover) and (pointer: fine)').matches
+
+/** What a <Pavatar> inside `ref` is showing, read off its data attributes as they change. */
+function useAvatarState(ref: RefObject<HTMLElement | null>) {
+  const [state, setState] = useState<{ direction: Direction; reaction: Reaction | null }>({
+    direction: 'center',
+    reaction: null,
+  })
+  useEffect(() => {
+    const root = ref.current
+    if (!root) return
+    let target: HTMLElement | null = null
+    const read = () => {
+      if (!target) return
+      setState({
+        direction: (target.dataset.direction as Direction) ?? 'center',
+        reaction: (target.dataset.reaction as Reaction) ?? null,
+      })
+    }
+    const attach = () => {
+      target = root.querySelector<HTMLElement>('[data-direction]')
+      read()
+    }
+    attach()
+    const observer = new MutationObserver(() => {
+      if (!target || !root.contains(target)) attach()
+      else read()
+    })
+    observer.observe(root, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-direction', 'data-reaction'] })
+    return () => observer.disconnect()
+  }, [ref])
+  return state
+}
 
 function useCopy() {
   const [copied, setCopied] = useState<string | null>(null)
@@ -13,308 +48,400 @@ function useCopy() {
     const timer = window.setTimeout(() => setCopied(null), 1400)
     return () => window.clearTimeout(timer)
   }, [copied])
-  const copy = (id: string, text: string) => {
-    navigator.clipboard?.writeText(text).then(() => setCopied(id), () => {})
+  return {
+    copied,
+    copy: (id: string, text: string) => navigator.clipboard?.writeText(text).then(() => setCopied(id), () => {}),
   }
-  return { copied, copy }
 }
 
-function Code(props: { id: string; code: string; t: Text; copy: ReturnType<typeof useCopy> }) {
-  const { id, code, t, copy } = props
+type Copy = ReturnType<typeof useCopy>
+
+function CopyButton(props: { id: string; text: string; t: Text; copy: Copy }) {
+  const { id, text, t, copy } = props
   return (
-    <div className="code">
+    <button type="button" className="copy" onClick={() => copy.copy(id, text)}>
+      {copy.copied === id ? t.copied : t.copy}
+    </button>
+  )
+}
+
+function Code(props: { id: string; code: string; t: Text; copy: Copy; prompt?: boolean }) {
+  const { id, code, t, copy, prompt } = props
+  return (
+    <div className={prompt ? 'code shell' : 'code'}>
       <pre>
         <code>{code}</code>
       </pre>
-      <button type="button" className="copy" onClick={() => copy.copy(id, code)}>
-        {copy.copied === id ? t.copied : t.copy}
-      </button>
+      <CopyButton id={id} text={code} t={t} copy={copy} />
     </div>
   )
 }
 
 function GitHubMark() {
   return (
-    <svg viewBox="0 0 16 16" aria-hidden="true" width="16" height="16" fill="currentColor">
+    <svg viewBox="0 0 16 16" aria-hidden="true" width="18" height="18" fill="currentColor">
       <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
     </svg>
   )
 }
 
-type Settings = {
-  size: number
-  tracking: boolean
-  deadZone: number
-  interactive: boolean
-  sleepAfter: number
+function Section(props: { id: string; kicker: string; title: string; lead?: ReactNode; children: ReactNode }) {
+  const { id, kicker, title, lead, children } = props
+  return (
+    <section className="section" id={id} aria-labelledby={`${id}-title`}>
+      <p className="kicker">{kicker}</p>
+      <h2 id={`${id}-title`}>{title}</h2>
+      {lead && <p className="section-lead">{lead}</p>}
+      {children}
+    </section>
+  )
 }
 
-const DEFAULTS: Settings = { size: 140, tracking: true, deadZone: 70, interactive: true, sleepAfter: 20000 }
+function Hero(props: { picked: Character; t: Text; copy: Copy }) {
+  const { picked, t, copy } = props
+  const [tab, setTab] = useState<'npm' | 'skill'>('npm')
+  const stageRef = useRef<HTMLDivElement>(null)
+  const { direction, reaction } = useAvatarState(stageRef)
+  const command = tab === 'npm' ? 'npm i pretty-avatar' : SKILL_COMMAND
+  const moved = direction !== 'center' || reaction
 
-function snippet(name: string, settings: Settings) {
-  const props = [`name="${name}"`]
-  if (settings.size !== DEFAULTS.size) props.push(`size={${settings.size}}`)
-  if (settings.tracking !== DEFAULTS.tracking) props.push(`tracking={${settings.tracking}}`)
-  if (settings.deadZone !== DEFAULTS.deadZone) props.push(`deadZone={${settings.deadZone}}`)
-  if (settings.interactive !== DEFAULTS.interactive) props.push(`interactive={${settings.interactive}}`)
-  if (settings.sleepAfter !== DEFAULTS.sleepAfter) props.push(`sleepAfter={${settings.sleepAfter}}`)
-  const tag = props.length > 2 ? `<Pavatar\n  ${props.join('\n  ')}\n/>` : `<Pavatar ${props.join(' ')} />`
-  return `import { Pavatar } from 'pretty-avatar'\n\n${tag}`
-}
-
-function Hero(props: { picked: CastName; t: Text; onMake: () => void }) {
-  const { picked, t, onMake } = props
-  const fine = useMemo(() => window.matchMedia?.('(hover: hover) and (pointer: fine)').matches ?? true, [])
   return (
     <header className="hero">
-      <Pavatar key={picked} name={picked} basePath={BASE_PATH} size={200} label={picked} className="hero-avatar" />
-      <h1>/pretty-avatar</h1>
-      <p className="lead">{t.tagline}</p>
-      <div className="actions">
-        <a className="button primary" href="#cast">
-          {t.useOne(CAST.length)}
-        </a>
-        <button type="button" className="button" onClick={onMake}>
-          {t.makeOwn}
-        </button>
-        <a className="button" href={REPO} target="_blank" rel="noreferrer">
-          <GitHubMark /> GitHub
-        </a>
+      <div className="hero-copy">
+        <p className="eyebrow">{t.eyebrow}</p>
+        <h1>
+          {t.title[0]}
+          <span className="mark">{t.title[1]}</span>
+          <span className="nowrap">{t.title[2]}</span>
+        </h1>
+        <p className="lead">{t.lead}</p>
+
+        <div className="installer">
+          <div className="tabs" role="tablist">
+            {(['npm', 'skill'] as const).map((key) => (
+              <button key={key} type="button" role="tab" aria-selected={tab === key} className="tab"
+                onClick={() => setTab(key)}>
+                {t.tabs[key]}
+              </button>
+            ))}
+          </div>
+          <div className="command">
+            <code>
+              <span className="dollar">$</span> {command}
+            </code>
+            <CopyButton id="hero" text={command} t={t} copy={copy} />
+          </div>
+        </div>
+
+        <ul className="facts">
+          {t.facts.map((fact) => (
+            <li key={fact}>{fact}</li>
+          ))}
+        </ul>
       </div>
-      <p className="hint">{fine ? t.hint : t.touchHint}</p>
+
+      <div className="stage-card" ref={stageRef}>
+        <div className="bubble" aria-live="polite">
+          {reaction ? (
+            <>
+              {t.bubble.feeling} <b>{reaction}</b>
+            </>
+          ) : moved ? (
+            <>
+              {t.bubble.looking} <b>{direction}</b>
+            </>
+          ) : FINE ? (
+            t.bubble.idle
+          ) : (
+            t.bubble.touch
+          )}
+        </div>
+        <div className="spotlight">
+          <Pavatar key={picked.name} name={picked.name} basePath={BASE_PATH} size={232} label={picked.name} />
+        </div>
+        <p className="stage-name">
+          <code>&lt;Pavatar name="{picked.name}" /&gt;</code>
+        </p>
+      </div>
     </header>
   )
 }
 
-function Playground(props: { picked: CastName; t: Text; copy: ReturnType<typeof useCopy> }) {
+function ClassPhoto(props: { picked: Character; lang: Lang; t: Text; copy: Copy; onPick: (name: CastName) => void }) {
+  const { picked, lang, t, copy, onPick } = props
+  const snippet = `<Pavatar name="${picked.name}" />`
+  return (
+    <Section id="cast" kicker="01" title={t.castTitle} lead={t.castLead}>
+      <ul className="bench">
+        {CAST.map((character) => {
+          const active = character.name === picked.name
+          return (
+            <li key={character.name} className={active ? 'seat active' : 'seat'}
+              style={{ '--seat': character.accent } as CSSProperties}>
+              <Pavatar name={character.name} basePath={BASE_PATH} size={128} label={character.name} interactive={false} />
+              <button type="button" className="tag" aria-pressed={active} onClick={() => onPick(character.name)}>
+                <span className="dot" aria-hidden />
+                <code>{character.name}</code>
+                <span className="species">{character[lang]}</span>
+              </button>
+            </li>
+          )
+        })}
+      </ul>
+
+      <div className="picked-bar">
+        <span className="picked-label">{t.picked}</span>
+        <code className="picked-snippet">{snippet}</code>
+        <CopyButton id="picked" text={snippet} t={t} copy={copy} />
+        <span className="picked-downloads">
+          {t.download}:{' '}
+          <a href={sheetUrl(picked.name, 'directions')} download>
+            {picked.name}-directions.webp
+          </a>{' '}
+          ·{' '}
+          <a href={sheetUrl(picked.name, 'reactions')} download>
+            {picked.name}-reactions.webp
+          </a>
+        </span>
+      </div>
+    </Section>
+  )
+}
+
+function SheetGrid(props: { src: string; labels: readonly string[]; active: string | null; caption: string }) {
+  const { src, labels, active, caption } = props
+  return (
+    <figure className="sheet">
+      <div className="sheet-grid" style={{ backgroundImage: `url("${src}")` }}>
+        {labels.map((label) => (
+          <span key={label} className={label === active ? 'cell on' : 'cell'}>
+            <small>{label}</small>
+          </span>
+        ))}
+      </div>
+      <figcaption>{caption}</figcaption>
+    </figure>
+  )
+}
+
+function UnderTheHood(props: { picked: Character; t: Text }) {
+  const { picked, t } = props
+  const liveRef = useRef<HTMLDivElement>(null)
+  const { direction, reaction } = useAvatarState(liveRef)
+  return (
+    <Section id="how" kicker="02" title={t.howTitle} lead={t.howLead}>
+      <div className="hood">
+        <div className="hood-live" ref={liveRef}>
+          <Pavatar key={picked.name} name={picked.name} basePath={BASE_PATH} size={168} label={picked.name} />
+        </div>
+        <SheetGrid src={sheetUrl(picked.name, 'directions')} labels={DIRECTIONS}
+          active={reaction ? null : direction} caption={t.directionsSheet} />
+        <SheetGrid src={sheetUrl(picked.name, 'reactions')} labels={REACTIONS}
+          active={reaction} caption={t.reactionsSheet} />
+      </div>
+      <ol className="steps">
+        {t.steps.map(([title, body], index) => (
+          <li key={title}>
+            <span className="step-number">{index + 1}</span>
+            <h3>{title}</h3>
+            <p>{body}</p>
+          </li>
+        ))}
+      </ol>
+    </Section>
+  )
+}
+
+type Settings = { size: number; tracking: boolean; deadZone: number; interactive: boolean; sleepAfter: number }
+const DEFAULTS: Settings = { size: 140, tracking: true, deadZone: 70, interactive: true, sleepAfter: 20000 }
+
+function snippet(name: string, settings: Settings) {
+  const props = [`name="${name}"`]
+  for (const key of ['size', 'tracking', 'deadZone', 'interactive', 'sleepAfter'] as const) {
+    if (settings[key] !== DEFAULTS[key]) props.push(`${key}={${settings[key]}}`)
+  }
+  const tag = props.length > 2 ? `<Pavatar\n  ${props.join('\n  ')}\n/>` : `<Pavatar ${props.join(' ')} />`
+  return `import { Pavatar } from 'pretty-avatar'\n\n${tag}`
+}
+
+function Playground(props: { picked: Character; t: Text; copy: Copy }) {
   const { picked, t, copy } = props
   const [settings, setSettings] = useState<Settings>(DEFAULTS)
   const [boop, setBoop] = useState<Reaction | null>(null)
   const set = <K extends keyof Settings>(key: K, value: Settings[K]) => setSettings((s) => ({ ...s, [key]: value }))
 
   return (
-    <section className="section" aria-labelledby="playground">
-      <h2 id="playground">{t.playground}</h2>
-      <p className="section-lead">{t.playgroundLead}</p>
+    <Section id="play" kicker="03" title={t.playTitle} lead={t.playLead}>
       <div className="playground">
-        <div className="stage">
-          <Pavatar
-            key={`${picked}-${settings.interactive}`}
-            name={picked}
-            basePath={BASE_PATH}
-            size={settings.size}
-            tracking={settings.tracking}
-            deadZone={settings.deadZone}
-            interactive={settings.interactive}
-            sleepAfter={settings.sleepAfter}
-            onBoop={setBoop}
-            label={picked}
-          />
+        <div className="panel">
+          <label className="slider">
+            <span>size</span>
+            <input type="range" min={64} max={240} step={4} value={settings.size}
+              onChange={(e) => set('size', Number(e.target.value))} />
+            <output>{settings.size}px</output>
+          </label>
+          <label className="slider">
+            <span>deadZone</span>
+            <input type="range" min={0} max={200} step={5} value={settings.deadZone}
+              onChange={(e) => set('deadZone', Number(e.target.value))} />
+            <output>{settings.deadZone}px</output>
+          </label>
+          <label className="slider">
+            <span>sleepAfter</span>
+            <input type="range" min={0} max={30000} step={1000} value={settings.sleepAfter}
+              onChange={(e) => set('sleepAfter', Number(e.target.value))} />
+            <output>{settings.sleepAfter === 0 ? t.never : `${settings.sleepAfter / 1000}s`}</output>
+          </label>
+          <div className="switches">
+            {(['tracking', 'interactive'] as const).map((key) => (
+              <label key={key} className="switch">
+                <input type="checkbox" role="switch" checked={settings[key]} onChange={(e) => set(key, e.target.checked)} />
+                <span className="knob" aria-hidden />
+                {key}
+              </label>
+            ))}
+          </div>
+          <Code id="playground" code={snippet(picked.name, settings)} t={t} copy={copy} />
+        </div>
+        <div className="play-stage">
+          <Pavatar key={`${picked.name}-${settings.interactive}`} name={picked.name} basePath={BASE_PATH}
+            size={settings.size} tracking={settings.tracking} deadZone={settings.deadZone}
+            interactive={settings.interactive} sleepAfter={settings.sleepAfter} onBoop={setBoop} label={picked.name} />
+          {settings.deadZone > 0 && settings.tracking && (
+            <span className="deadzone" aria-hidden style={{ width: settings.deadZone * 2, height: settings.deadZone * 2 }} />
+          )}
           <span className="boop">
             {t.lastBoop}: <b>{boop ?? '—'}</b>
           </span>
         </div>
-        <div className="controls">
-          <label>
-            <span>
-              {t.size} <output>{settings.size}px</output>
-            </span>
-            <input type="range" min={64} max={240} step={4} value={settings.size}
-              onChange={(e) => set('size', Number(e.target.value))} />
-          </label>
-          <label>
-            <span>
-              {t.deadZone} <output>{settings.deadZone}px</output>
-            </span>
-            <input type="range" min={0} max={200} step={5} value={settings.deadZone}
-              onChange={(e) => set('deadZone', Number(e.target.value))} />
-          </label>
-          <label>
-            <span>
-              {t.sleepAfter}{' '}
-              <output>{settings.sleepAfter === 0 ? t.never : `${settings.sleepAfter / 1000}s`}</output>
-            </span>
-            <input type="range" min={0} max={30000} step={1000} value={settings.sleepAfter}
-              onChange={(e) => set('sleepAfter', Number(e.target.value))} />
-          </label>
-          <div className="toggles">
-            <label className="toggle">
-              <input type="checkbox" checked={settings.tracking} onChange={(e) => set('tracking', e.target.checked)} />
-              {t.tracking}
-            </label>
-            <label className="toggle">
-              <input type="checkbox" checked={settings.interactive}
-                onChange={(e) => set('interactive', e.target.checked)} />
-              {t.interactive}
-            </label>
-          </div>
-          <Code id="playground" code={snippet(picked, settings)} t={t} copy={copy} />
-        </div>
       </div>
-    </section>
+    </Section>
   )
 }
 
-function Cast(props: { picked: CastName; lang: Lang; t: Text; onPick: (name: CastName) => void }) {
-  const { picked, lang, t, onPick } = props
+function Install(props: { picked: Character; t: Text; copy: Copy }) {
+  const { picked, t, copy } = props
+  const codes = [
+    'npm i pretty-avatar',
+    `public/avatars/${picked.name}-directions.webp\npublic/avatars/${picked.name}-reactions.webp`,
+    `import { Pavatar } from 'pretty-avatar'\n\nexport function Header() {\n  return <Pavatar name="${picked.name}" />\n}`,
+  ]
   return (
-    <section className="section" id="cast" aria-labelledby="cast-title">
-      <h2 id="cast-title">{t.cast}</h2>
-      <p className="section-lead">{t.castLead}</p>
-      <ul className="cast">
-        {CAST.map((character) => (
-          <li key={character.name} className={character.name === picked ? 'card picked' : 'card'}>
-            <Pavatar name={character.name} basePath={BASE_PATH} size={112} label={character.name} />
-            <div className="card-name">
-              <code>{character.name}</code>
-              <span>{character[lang]}</span>
-            </div>
-            <div className="card-actions">
-              <button type="button" className="chip" onClick={() => onPick(character.name)}
-                aria-pressed={character.name === picked}>
-                {t.use}
-              </button>
-              <a className="chip" href={sheetUrl(character.name, 'directions')} download
-                aria-label={`${t.download}: ${character.name}-directions.webp`} title={`${character.name}-directions.webp`}>
-                ↓ 1
-              </a>
-              <a className="chip" href={sheetUrl(character.name, 'reactions')} download
-                aria-label={`${t.download}: ${character.name}-reactions.webp`} title={`${character.name}-reactions.webp`}>
-                ↓ 2
-              </a>
-            </div>
+    <Section id="install" kicker="04" title={t.installTitle}>
+      <ol className="install-steps">
+        {t.installSteps.map(([title, note], index) => (
+          <li key={title}>
+            <h3>{title}</h3>
+            {note && <p>{note}</p>}
+            <Code id={`install-${index}`} code={codes[index]} t={t} copy={copy} />
           </li>
         ))}
-      </ul>
-    </section>
-  )
-}
+      </ol>
 
-function How(props: { picked: CastName; t: Text }) {
-  const { picked, t } = props
-  return (
-    <section className="section" aria-labelledby="how">
-      <h2 id="how">{t.how}</h2>
-      <p className="section-lead">{t.howLead}</p>
-      <div className="sheets">
-        <figure>
-          <img src={sheetUrl(picked, 'directions')} alt="" width={240} height={240} loading="lazy" />
-          <figcaption>{t.directionsSheet}</figcaption>
-        </figure>
-        <figure>
-          <img src={sheetUrl(picked, 'reactions')} alt="" width={240} height={240} loading="lazy" />
-          <figcaption>{t.reactionsSheet}</figcaption>
-        </figure>
-      </div>
-      <dl className="details">
-        {t.howDetails.map(([title, body]) => (
-          <div key={title}>
-            <dt>{title}</dt>
-            <dd>{body}</dd>
+      <h3 className="props-title">{t.propsTitle}</h3>
+      <dl className="props">
+        {t.props.map(([prop, fallback, note]) => (
+          <div key={prop} className="prop">
+            <dt>
+              <code>{prop}</code>
+              {fallback !== '—' && <span className="default">{fallback}</span>}
+            </dt>
+            <dd>{note}</dd>
           </div>
         ))}
       </dl>
-    </section>
+    </Section>
   )
 }
 
-function Install(props: { picked: CastName; t: Text; copy: ReturnType<typeof useCopy> }) {
-  const { picked, t, copy } = props
+function Make(props: { t: Text; copy: Copy }) {
+  const { t, copy } = props
   return (
-    <section className="section" id="install" aria-labelledby="install-title">
-      <h2 id="install-title">{t.install}</h2>
-      <Code id="npm" code="npm i pretty-avatar" t={t} copy={copy} />
-      <p className="section-lead">{t.installLead}</p>
-      <Code id="use" code={`import { Pavatar } from 'pretty-avatar'\n\n<Pavatar name="${picked}" />`} t={t} copy={copy} />
-
-      <h3 className="props-title">{t.props}</h3>
-      <div className="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>prop</th>
-              <th>default</th>
-              <th />
-            </tr>
-          </thead>
-          <tbody>
-            {t.propsRows.map(([prop, fallback, note]) => (
-              <tr key={prop}>
-                <td><code>{prop}</code></td>
-                <td><code>{fallback}</code></td>
-                <td>{note}</td>
-              </tr>
+    <Section id="make" kicker="05" title={t.makeTitle} lead={t.makeLead}>
+      <div className="make">
+        <div>
+          <Code id="skill" code={SKILL_COMMAND} t={t} copy={copy} prompt />
+          <p className="works-label">{t.worksWith}</p>
+          <ul className="agents">
+            {AGENTS.map((agent) => (
+              <li key={agent}>{agent}</li>
             ))}
-          </tbody>
-        </table>
+            <li className="more">{t.andMore}</li>
+          </ul>
+        </div>
+        <div className="terminal" aria-label={t.makeAsk}>
+          <div className="terminal-bar" aria-hidden>
+            <i />
+            <i />
+            <i />
+          </div>
+          <p className="terminal-label">{t.makeAsk}</p>
+          {t.asks.map((ask) => (
+            <p key={ask} className="terminal-line">
+              <span className="caret">›</span> {ask}
+            </p>
+          ))}
+        </div>
       </div>
-    </section>
-  )
-}
-
-function Make(props: { t: Text; copy: ReturnType<typeof useCopy>; lang: Lang }) {
-  const { t, copy, lang } = props
-  const asks =
-    lang === 'th'
-      ? '/pretty-avatar ใส่แมว mochi ไว้บนหัวเว็บ\n/pretty-avatar สุนัขชิบะสีส้มใส่ผ้าพันคอสีแดง\n/pretty-avatar วาดให้เหมือนฉัน        [แนบรูป]\n/pretty-avatar นกฮูกสีน้ำตาล สไตล์ pastel'
-      : '/pretty-avatar put mochi the cat on my page\n/pretty-avatar a chibi shiba with orange fur and a red scarf\n/pretty-avatar make one that looks like me   [attach a photo]\n/pretty-avatar a brown owl, in the pastel style'
-  return (
-    <section className="section" id="make" aria-labelledby="make-title">
-      <h2 id="make-title">{t.makeTitle}</h2>
-      <p className="section-lead">{t.makeLead}</p>
-      <Code id="skill" code="npx skills add kimookpong/pretty-avatar --skill pretty-avatar --agent '*' --global --yes" t={t} copy={copy} />
-      <p className="section-lead">{t.makeAsk}</p>
-      <Code id="ask" code={asks} t={t} copy={copy} />
       <p className="note">{t.makeNote}</p>
       <a className="link" href={`${REPO}/blob/main/skills/pretty-avatar/reference/prompts.md`} target="_blank" rel="noreferrer">
-        {t.promptsLink} →
+        {t.prompts} →
       </a>
-    </section>
+    </Section>
   )
 }
 
 export function App() {
   const [lang, setLang] = useState<Lang>(initialLang)
-  const [picked, setPicked] = useState<CastName>('mochi')
+  const [pickedName, setPickedName] = useState<CastName>('mochi')
   const copy = useCopy()
   const t = TEXT[lang]
+  const picked = CAST.find((c) => c.name === pickedName) ?? CAST[0]
 
   useEffect(() => {
     document.documentElement.lang = lang
     saveLang(lang)
   }, [lang])
 
-  const pick = (name: CastName) => {
-    setPicked(name)
-    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
-  }
-
-  const make = () => document.getElementById('make')?.scrollIntoView({ behavior: 'smooth' })
+  const theme = { '--accent': picked.accent, '--accent-ink': picked.ink } as CSSProperties
 
   return (
-    <>
+    <div className="app" style={theme}>
       <nav className="topbar">
-        <span className="brand">pretty-avatar</span>
-        <button type="button" className="lang" onClick={() => setLang(lang === 'th' ? 'en' : 'th')}>
-          {t.lang}
-        </button>
+        <a className="brand" href="#top">
+          <Pavatar name={picked.name} basePath={BASE_PATH} size={36} label={picked.name} interactive={false} sleepAfter={0} />
+          pretty-avatar
+        </a>
+        <div className="nav-links">
+          <a href="#cast">{t.nav.cast}</a>
+          <a href="#how">{t.nav.how}</a>
+          <a href="#play">{t.nav.play}</a>
+          <a href="#install">{t.nav.install}</a>
+        </div>
+        <div className="nav-actions">
+          <a className="icon-link" href={REPO} target="_blank" rel="noreferrer" aria-label="GitHub">
+            <GitHubMark />
+          </a>
+          <button type="button" className="lang" onClick={() => setLang(lang === 'th' ? 'en' : 'th')}
+            aria-label={lang === 'th' ? 'Switch to English' : 'เปลี่ยนเป็นภาษาไทย'}>
+            {t.lang}
+          </button>
+        </div>
       </nav>
-      <main className="page">
-        <Hero picked={picked} t={t} onMake={make} />
+      <main className="page" id="top">
+        <Hero picked={picked} t={t} copy={copy} />
+        <ClassPhoto picked={picked} lang={lang} t={t} copy={copy} onPick={setPickedName} />
+        <UnderTheHood picked={picked} t={t} />
         <Playground picked={picked} t={t} copy={copy} />
-        <Cast picked={picked} lang={lang} t={t} onPick={pick} />
-        <How picked={picked} t={t} />
         <Install picked={picked} t={t} copy={copy} />
-        <Make t={t} copy={copy} lang={lang} />
+        <Make t={t} copy={copy} />
       </main>
       <footer className="footer">
-        <p>
-          {t.footer}{' '}
-          <a href={REPO} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-        </p>
+        <span>{t.footer}</span>
+        <a href={REPO} target="_blank" rel="noreferrer">
+          github.com/kimookpong/pretty-avatar
+        </a>
       </footer>
-    </>
+    </div>
   )
 }
