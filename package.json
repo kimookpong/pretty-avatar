@@ -1,6 +1,6 @@
 {
   "name": "pretty-avatar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A cute avatar that turns its head toward the cursor and reacts when you poke it.",
   "license": "MIT",
   "author": "kimookpong",
@@ -18,7 +18,7 @@
     }
   },
   "types": "./dist/index.d.ts",
-  "files": ["dist", "README.md", "README.th.md", "LICENSE"],
+  "files": ["dist", "README.md", "README.th.md", "CHANGELOG.md", "LICENSE"],
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.build.json && npm run sync:skill",
