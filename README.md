@@ -1,0 +1,134 @@
+<img src=".github/assets/cast.png" width="480" alt="the six ready-made characters">
+
+# pretty-avatar
+
+A cute avatar for the top of your page. It turns its head toward the reader's cursor
+and reacts when they poke it.
+
+**[See it live &rarr;](https://kimookpong.github.io/pretty-avatar/)** · [ภาษาไทย](README.th.md)
+
+## Install
+
+```bash
+npm i pretty-avatar
+```
+
+## Use a ready-made character
+
+Download a character's two sheets from the [demo page](https://kimookpong.github.io/pretty-avatar/#cast)
+into `public/avatars`, then:
+
+```tsx
+import { Pavatar } from 'pretty-avatar'
+
+<Pavatar name="mochi" />
+```
+
+`name` reads `/avatars/mochi-directions.webp` and `/avatars/mochi-reactions.webp`. Point
+it elsewhere with `basePath`, or pass the two sheets yourself (paths or imported images):
+
+```tsx
+<Pavatar name="mochi" basePath="/static/avatars" />
+<Pavatar directions={directionsUrl} reactions={reactionsUrl} />
+```
+
+The component is marked `'use client'`, so it works straight from a Next.js App Router
+page.
+
+## Props
+
+| prop | default | |
+| --- | --- | --- |
+| `name` | | reads `${basePath}/${name}-directions.webp` and `-reactions.webp` |
+| `basePath` | `'/avatars'` | where the sheets are served from, with `name` |
+| `directions`, `reactions` | | the two sheets, instead of `name` |
+| `size` | `140` | px, square |
+| `label` | `'avatar'` | what a screen reader calls it |
+| `tracking` | `true` | turn the head toward the pointer |
+| `deadZone` | `70` | px around the centre where it looks straight ahead |
+| `interactive` | `true` | react to clicks; `false` renders a plain image |
+| `sleepAfter` | `20000` | ms without the pointer moving before it dozes off; `0` never |
+| `onBoop` | | `(reaction) => void`, on every click |
+| `className`, `style` | | on the outer element |
+
+Click it for a blink and a heart, sparkle, star eyes, grin or blush. Poke it four times
+quickly and it gets dizzy. Leave it alone and it falls asleep.
+
+Tracking switches off without a fine pointer (and back on if one is plugged in), the
+click squash honours `prefers-reduced-motion`, and it is a real `<button>`.
+
+## Draw your own with `/pretty-avatar`
+
+Install the skill into every coding agent the [skills](https://github.com/vercel-labs/skills)
+CLI knows -- Claude Code, Codex, Windsurf, Cline, Roo Code, Kiro, Qwen Code, Goose, Amp,
+Continue and some seventy more:
+
+```bash
+npx skills add kimookpong/pretty-avatar --skill pretty-avatar --agent '*' --global --yes
+```
+
+Then ask your agent:
+
+```
+/pretty-avatar put mochi the cat on my page
+/pretty-avatar a chibi shiba with orange fur and a red scarf
+/pretty-avatar make one that looks like me        [attach a photo]
+/pretty-avatar a brown owl, in the pastel style
+```
+
+`--agent '*'` installs to all of them; name one or more instead (`--agent claude-code codex`)
+to keep it narrower. Drop `--global` to install into the current project only.
+
+It draws nine head directions and nine expressions, builds them into two aligned sheets,
+checks the character does not jump between them, and puts `<Pavatar />` on your page.
+
+Drawing needs an image model. Agents with their own image tool use it; every other agent
+goes through the OpenAI Images API:
+
+```bash
+export OPENAI_API_KEY=sk-...
+pip install pillow numpy scipy openai
+```
+
+For an agent that does not load skills, `npx skills use kimookpong/pretty-avatar@pretty-avatar`
+prints the skill as a prompt to paste in. Or skip agents altogether and paste the
+[prompts](skills/pretty-avatar/reference/prompts.md) into any chat app.
+
+Styles: `colour` (default), `pastel`, `ink`, `watercolour`, `pixel`, `clay`.
+
+## How it works
+
+Each character is two 3×3 sprite sheets: nine head directions, and nine expressions.
+
+![the two sheets that make up one character](.github/assets/sheets.png)
+
+The angle from the avatar to the pointer picks a cell on the directions sheet, with a
+dead zone so the head settles when the cursor is close and a little hysteresis so it
+does not flicker on a boundary. A click shows cells from the expressions sheet for half a
+second. The component only moves `background-position`: no canvas, no animation library.
+
+Image models never draw two sheets exactly alike, so the build step
+(`skills/pretty-avatar/scripts/build.py`) lines up the shoulders in all eighteen cells,
+matches the scale of the second sheet to the first, and `verify.py` measures how far the
+body would move on screen before anything ships. See
+[troubleshooting](skills/pretty-avatar/reference/troubleshooting.md) for what each check
+means.
+
+## Development
+
+```bash
+npm install
+npm run dev            # the demo site
+npm test               # component tests
+npm run test:pipeline  # Python pipeline tests (needs pillow, numpy, scipy)
+npm run samples        # redraw the sample cast into public/avatars
+```
+
+`src/` is the package. `skills/pretty-avatar/Pavatar.tsx` is a single-file copy for
+projects that copy rather than install; it is generated by `npm run sync:skill`.
+
+The demo site deploys to GitHub Pages from `main` (`.github/workflows/pages.yml`).
+
+## License
+
+MIT © kimookpong. Inspired by [page-mascot](https://github.com/nilbuild/page-mascot).

@@ -1,0 +1,13 @@
+node_modules
+dist
+site-build
+*.local
+*.log
+*.tgz
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+__pycache__/
+# Source sheets from scripts/samples.py; only the built atlases in public/avatars are kept.
+characters/
