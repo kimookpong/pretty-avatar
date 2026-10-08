@@ -39,7 +39,7 @@ export const TEXT = {
     installTitle: 'Install',
     installSteps: [
       ['Add the package', ''],
-      ['Put two sheets in public/avatars', 'Download them from the class photo above, or draw your own.'],
+      ['Put two sheets in public/avatars', 'Press Try it on a character, then Download in the playground. Or draw your own.'],
       ['Render it', ''],
     ],
     propsTitle: 'Props',
@@ -109,7 +109,7 @@ export const TEXT = {
     installTitle: 'ติดตั้ง',
     installSteps: [
       ['เพิ่ม package', ''],
-      ['วางชีตสองไฟล์ไว้ที่ public/avatars', 'ดาวน์โหลดจากรูปหมู่ด้านบน หรือวาดตัวละครของคุณเอง'],
+      ['วางชีตสองไฟล์ไว้ที่ public/avatars', 'กดลองเล่นที่ตัวละคร แล้วกดดาวน์โหลดในส่วน Playground หรือวาดตัวละครของคุณเอง'],
       ['แสดงผล', ''],
     ],
     propsTitle: 'Props',

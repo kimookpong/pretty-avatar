@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src=".github/assets/cast.png" width="560" alt="mochi, kuma, usagi, kaeru, pan and piyo — the six ready-made characters">
+<img src=".github/assets/cast.png" width="720" alt="mochi, kuma, usagi, kaeru, pan, piyo, human-afro and person-robot — eight of the 67 ready-made characters">
 
 # pretty-avatar
 
@@ -13,7 +13,7 @@ plus an agent skill, `/pretty-avatar`, that draws new characters for you.
 [![size](https://img.shields.io/badge/gzip-~3%20kB-6fb27a)](https://www.npmjs.com/package/pretty-avatar)
 [![license](https://img.shields.io/badge/license-MIT-e0a92e)](LICENSE)
 
-[**Live demo**](https://kimookpong.github.io/pretty-avatar/) · [Quick start](#quick-start) · [Props](#props) · [Draw your own](#draw-your-own) · [ภาษาไทย](README.th.md)
+[**Live demo**](https://kimookpong.github.io/pretty-avatar/) · [Quick start](#quick-start) · [Characters](#characters) · [Props](#props) · [Draw your own](#draw-your-own) · [ภาษาไทย](README.th.md)
 
 </div>
 
@@ -27,12 +27,16 @@ plus an agent skill, `/pretty-avatar`, that draws new characters for you.
 npm i pretty-avatar
 ```
 
-**2 —** grab a character's two sheets from the [demo page](https://kimookpong.github.io/pretty-avatar/#cast) and put them in `public/avatars/`
+**2 —** put a character's two sheets in `public/avatars/` (`static/` on SvelteKit)
 
+```bash
+mkdir -p public/avatars
+curl -fsSL -o public/avatars/mochi-directions.webp https://kimookpong.github.io/pretty-avatar/avatars/mochi-directions.webp
+curl -fsSL -o public/avatars/mochi-reactions.webp  https://kimookpong.github.io/pretty-avatar/avatars/mochi-reactions.webp
 ```
-public/avatars/mochi-directions.webp
-public/avatars/mochi-reactions.webp
-```
+
+Or pick one on the [demo page](https://kimookpong.github.io/pretty-avatar/#cast), press
+**Try it**, and use the **Download** buttons in the playground.
 
 **3 —** render it
 
@@ -47,11 +51,25 @@ export function Header() {
 That's it. It works in Vite, Next.js (App Router included — it ships `'use client'`), Remix,
 Astro islands and anything else that renders React 18+.
 
+## Characters
+
+67 ready-made characters. Swap `mochi` for any name below, in both the file names and `name="…"`.
+
+| | names |
+| --- | --- |
+| **originals** | `mochi` cat · `kuma` bear · `usagi` bunny · `kaeru` frog · `pan` panda · `piyo` chick |
+| **animals** | `animal-bear` `animal-cat` `animal-chick` `animal-cow` `animal-deer` `animal-dog` `animal-duck` `animal-elephant` `animal-fox` `animal-frog` `animal-giraffe` `animal-hamster` `animal-hedgehog` `animal-hippo` `animal-koala` `animal-lion` `animal-mouse` `animal-otter` `animal-owl` `animal-panda` `animal-penguin` `animal-pug` `animal-rabbit` `animal-raccoon` `animal-red-panda` `animal-seal` `animal-sheep` `animal-sloth` `animal-squirrel` `animal-tiger` |
+| **people** | `human-afro` `human-artist` `human-astronaut` `human-bald` `human-beanie` `human-bearded` `human-black-glasses` `human-blond` `human-bob` `human-builder` `human-bun` `human-cap` `human-chef` `human-curly-glasses` `human-doctor` `human-freckles` `human-grandfather` `human-grandmother` `human-headscarf` `human-hijab` `human-hoodie` `human-locs` `human-nurse` `human-pilot` `human-pixie` `human-ponytail` `human-silver-bob` `human-student` `human-turban` `human-wizard` |
+| **and** | `person-robot` |
+
+Every sheet is at `https://kimookpong.github.io/pretty-avatar/avatars/<name>-directions.webp`
+and `<name>-reactions.webp`, about 180 KB each.
+
 ## Two ways to get a character
 
 | | **Ready-made** | **Drawn for you** |
 | --- | --- | --- |
-| what | one of the six on the demo page | anything you describe, or you from a photo |
+| what | any of the 67 [above](#characters) | anything you describe, or you from a photo |
 | how | download two `.webp` files | ask your agent `/pretty-avatar a chibi shiba with a red scarf` |
 | needs | nothing | an agent, plus its image tool or an `OPENAI_API_KEY` |
 | time | seconds | a few minutes, retries included |
@@ -74,6 +92,12 @@ Astro islands and anything else that renders React 18+.
 
 Every prop is optional except the sheets: give `name`, or both `directions` and
 `reactions` (paths or imported images). TypeScript rejects anything in between.
+
+Sheets somewhere else? `basePath="/static/avatars"`, or point at them directly:
+
+```tsx
+<Pavatar directions="/img/me-directions.webp" reactions="/img/me-reactions.webp" />
+```
 
 ### What it does when poked
 

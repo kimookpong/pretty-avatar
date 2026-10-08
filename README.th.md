@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src=".github/assets/cast.png" width="560" alt="mochi, kuma, usagi, kaeru, pan และ piyo — ตัวละครสำเร็จรูปทั้ง 6 ตัว">
+<img src=".github/assets/cast.png" width="720" alt="mochi, kuma, usagi, kaeru, pan, piyo, human-afro และ person-robot — แปดจาก 67 ตัวละครสำเร็จรูป">
 
 # pretty-avatar
 
@@ -13,7 +13,7 @@ React component ขนาดเล็กที่หันหัวมองต�
 [![size](https://img.shields.io/badge/gzip-~3%20kB-6fb27a)](https://www.npmjs.com/package/pretty-avatar)
 [![license](https://img.shields.io/badge/license-MIT-e0a92e)](LICENSE)
 
-[**ดูตัวอย่างจริง**](https://kimookpong.github.io/pretty-avatar/) · [เริ่มต้นใช้งาน](#เริ่มต้นใช้งาน) · [Props](#props) · [วาดตัวละครเอง](#วาดตัวละครเอง) · [English](README.md)
+[**ดูตัวอย่างจริง**](https://kimookpong.github.io/pretty-avatar/) · [เริ่มต้นใช้งาน](#เริ่มต้นใช้งาน) · [ตัวละคร](#ตัวละคร) · [Props](#props) · [วาดตัวละครเอง](#วาดตัวละครเอง) · [English](README.md)
 
 </div>
 
@@ -27,12 +27,16 @@ React component ขนาดเล็กที่หันหัวมองต�
 npm i pretty-avatar
 ```
 
-**2 —** ดาวน์โหลดชีตสองไฟล์ของตัวละครจาก[หน้าตัวอย่าง](https://kimookpong.github.io/pretty-avatar/#cast) ไปไว้ที่ `public/avatars/`
+**2 —** วางชีตสองไฟล์ของตัวละครไว้ที่ `public/avatars/` (SvelteKit ใช้ `static/`)
 
+```bash
+mkdir -p public/avatars
+curl -fsSL -o public/avatars/mochi-directions.webp https://kimookpong.github.io/pretty-avatar/avatars/mochi-directions.webp
+curl -fsSL -o public/avatars/mochi-reactions.webp  https://kimookpong.github.io/pretty-avatar/avatars/mochi-reactions.webp
 ```
-public/avatars/mochi-directions.webp
-public/avatars/mochi-reactions.webp
-```
+
+หรือเลือกตัวละครบน[หน้าตัวอย่าง](https://kimookpong.github.io/pretty-avatar/#cast) กด **ลองเล่น**
+แล้วกดปุ่ม **ดาวน์โหลด** ในส่วน Playground
 
 **3 —** แสดงผล
 
@@ -47,11 +51,25 @@ export function Header() {
 แค่นี้เลย ใช้ได้กับ Vite, Next.js (รวม App Router เพราะประกาศ `'use client'` ไว้แล้ว), Remix,
 Astro islands และทุกที่ที่ใช้ React 18 ขึ้นไป
 
+## ตัวละคร
+
+มีตัวละครสำเร็จรูป 67 ตัว เปลี่ยน `mochi` เป็นชื่อไหนก็ได้ด้านล่าง ทั้งในชื่อไฟล์และใน `name="…"`
+
+| | ชื่อ |
+| --- | --- |
+| **ตัวดั้งเดิม** | `mochi` แมว · `kuma` หมี · `usagi` กระต่าย · `kaeru` กบ · `pan` แพนด้า · `piyo` ลูกเจี๊ยบ |
+| **สัตว์** | `animal-bear` `animal-cat` `animal-chick` `animal-cow` `animal-deer` `animal-dog` `animal-duck` `animal-elephant` `animal-fox` `animal-frog` `animal-giraffe` `animal-hamster` `animal-hedgehog` `animal-hippo` `animal-koala` `animal-lion` `animal-mouse` `animal-otter` `animal-owl` `animal-panda` `animal-penguin` `animal-pug` `animal-rabbit` `animal-raccoon` `animal-red-panda` `animal-seal` `animal-sheep` `animal-sloth` `animal-squirrel` `animal-tiger` |
+| **คน** | `human-afro` `human-artist` `human-astronaut` `human-bald` `human-beanie` `human-bearded` `human-black-glasses` `human-blond` `human-bob` `human-builder` `human-bun` `human-cap` `human-chef` `human-curly-glasses` `human-doctor` `human-freckles` `human-grandfather` `human-grandmother` `human-headscarf` `human-hijab` `human-hoodie` `human-locs` `human-nurse` `human-pilot` `human-pixie` `human-ponytail` `human-silver-bob` `human-student` `human-turban` `human-wizard` |
+| **และ** | `person-robot` |
+
+ชีตทุกไฟล์อยู่ที่ `https://kimookpong.github.io/pretty-avatar/avatars/<name>-directions.webp`
+และ `<name>-reactions.webp` ขนาดราวไฟล์ละ 180 KB
+
 ## สองทางในการได้ตัวละคร
 
 | | **สำเร็จรูป** | **ให้ agent วาดให้** |
 | --- | --- | --- |
-| ได้อะไร | หนึ่งในหกตัวบนหน้าตัวอย่าง | อะไรก็ได้ที่คุณบรรยาย หรือตัวคุณเองจากรูปถ่าย |
+| ได้อะไร | ตัวไหนก็ได้จาก 67 ตัว[ด้านบน](#ตัวละคร) | อะไรก็ได้ที่คุณบรรยาย หรือตัวคุณเองจากรูปถ่าย |
 | ทำอย่างไร | ดาวน์โหลดไฟล์ `.webp` สองไฟล์ | สั่ง agent ว่า `/pretty-avatar สุนัขชิบะใส่ผ้าพันคอสีแดง` |
 | ต้องมี | ไม่ต้องมีอะไร | agent พร้อมเครื่องมือสร้างภาพ หรือ `OPENAI_API_KEY` |
 | ใช้เวลา | ไม่กี่วินาที | ไม่กี่นาที รวมการวาดใหม่ |
@@ -74,6 +92,12 @@ Astro islands และทุกที่ที่ใช้ React 18 ขึ้�
 
 ทุก prop ไม่บังคับ ยกเว้นชีต: ใส่ `name` หรือใส่ทั้ง `directions` และ `reactions`
 (เป็น path หรือรูปที่ import มา) ถ้าใส่ไม่ครบ TypeScript จะแจ้ง error
+
+ถ้าชีตอยู่ที่อื่น ใส่ `basePath="/static/avatars"` หรือระบุไฟล์ตรง ๆ
+
+```tsx
+<Pavatar directions="/img/me-directions.webp" reactions="/img/me-reactions.webp" />
+```
 
 ### เมื่อถูกจิ้ม
 
