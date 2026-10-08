@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1
+
+- The npm page shows the English README. npm had picked up `README.th.md` instead, so
+  the Thai README moves to `docs/README.th.md` on GitHub.
+- Quick start follows the demo site's three steps: add the package, put two sheets in
+  `public/avatars`, render it.
+
 ## 0.3.0
 
 - Back to one way of getting a ready-made character: put its two sheets in

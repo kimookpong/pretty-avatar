@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src=".github/assets/cast.png" width="720" alt="mochi, kuma, usagi, kaeru, pan, piyo, human-afro และ person-robot — แปดจาก 67 ตัวละครสำเร็จรูป">
+<img src="../.github/assets/cast.png" width="720" alt="mochi, kuma, usagi, kaeru, pan, piyo, human-afro และ person-robot — แปดจาก 67 ตัวละครสำเร็จรูป">
 
 # pretty-avatar
 
@@ -11,9 +11,9 @@ React component ขนาดเล็กที่หันหัวมองต�
 [![npm](https://img.shields.io/npm/v/pretty-avatar?color=9a82cf&label=npm)](https://www.npmjs.com/package/pretty-avatar)
 [![CI](https://github.com/kimookpong/pretty-avatar/actions/workflows/ci.yml/badge.svg)](https://github.com/kimookpong/pretty-avatar/actions/workflows/ci.yml)
 [![size](https://img.shields.io/badge/gzip-~3%20kB-6fb27a)](https://www.npmjs.com/package/pretty-avatar)
-[![license](https://img.shields.io/badge/license-MIT-e0a92e)](LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-e0a92e)](../LICENSE)
 
-[**ดูตัวอย่างจริง**](https://kimookpong.github.io/pretty-avatar/) · [เริ่มต้นใช้งาน](#เริ่มต้นใช้งาน) · [ตัวละคร](#ตัวละคร) · [Props](#props) · [วาดตัวละครเอง](#วาดตัวละครเอง) · [English](README.md)
+[**ดูตัวอย่างจริง**](https://kimookpong.github.io/pretty-avatar/) · [เริ่มต้นใช้งาน](#เริ่มต้นใช้งาน) · [ตัวละคร](#ตัวละคร) · [Props](#props) · [วาดตัวละครเอง](#วาดตัวละครเอง) · [English](../README.md)
 
 </div>
 
@@ -21,13 +21,24 @@ React component ขนาดเล็กที่หันหัวมองต�
 
 ## เริ่มต้นใช้งาน
 
-**1 —** ติดตั้ง
+**1 — เพิ่ม package**
 
 ```bash
 npm i pretty-avatar
 ```
 
-**2 —** วางชีตสองไฟล์ของตัวละครไว้ที่ `public/avatars/` (SvelteKit ใช้ `static/`)
+**2 — วางชีตสองไฟล์ไว้ที่ `public/avatars`**
+
+ที่[หน้าตัวอย่าง](https://kimookpong.github.io/pretty-avatar/#cast) กด **ลองเล่น** ที่ตัวละคร
+แล้วกด **ดาวน์โหลด** ในส่วน Playground หรือ[วาดตัวละครของคุณเอง](#วาดตัวละครเอง)
+
+```
+public/avatars/mochi-directions.webp
+public/avatars/mochi-reactions.webp
+```
+
+<details>
+<summary>หรือดาวน์โหลดจาก terminal</summary>
 
 ```bash
 mkdir -p public/avatars
@@ -35,10 +46,11 @@ curl -fsSL -o public/avatars/mochi-directions.webp https://kimookpong.github.io/
 curl -fsSL -o public/avatars/mochi-reactions.webp  https://kimookpong.github.io/pretty-avatar/avatars/mochi-reactions.webp
 ```
 
-หรือเลือกตัวละครบน[หน้าตัวอย่าง](https://kimookpong.github.io/pretty-avatar/#cast) กด **ลองเล่น**
-แล้วกดปุ่ม **ดาวน์โหลด** ในส่วน Playground
+ถ้าใช้ SvelteKit ให้วางที่ `static/avatars`
 
-**3 —** แสดงผล
+</details>
+
+**3 — แสดงผล**
 
 ```tsx
 import { Pavatar } from 'pretty-avatar'
@@ -139,12 +151,12 @@ pip install pillow numpy scipy openai
 
 สไตล์ที่มี: `colour` · `pastel` · `ink` · `watercolour` · `pixel` · `clay`
 
-ไม่มี agent? นำ [prompt](skills/pretty-avatar/reference/prompts.md) ไปวางในแอปแชตใดก็ได้
+ไม่มี agent? นำ [prompt](../skills/pretty-avatar/reference/prompts.md) ไปวางในแอปแชตใดก็ได้
 หรือใช้ `npx skills use kimookpong/pretty-avatar@pretty-avatar` เพื่อพิมพ์ทั้ง skill ออกมาเป็น prompt เดียว
 
 ## เบื้องหลัง
 
-<img src=".github/assets/sheets.png" width="640" alt="ชีตทิศทางและชีตสีหน้าของ mochi">
+<img src="../.github/assets/sheets.png" width="640" alt="ชีตทิศทางและชีตสีหน้าของ mochi">
 
 ตัวละครหนึ่งตัวคือ sprite sheet ขนาด 3×3 สองแผ่น มุมจากอวตาร์ไปยังเคอร์เซอร์จะเลือกหนึ่งในเก้าช่อง
 ของชีตซ้าย เมื่อคลิกจะแสดงช่องจากชีตขวา component เปลี่ยนแค่ `background-position`
@@ -165,19 +177,19 @@ flowchart LR
   E -- ผ่าน --> F[&lt;Pavatar /&gt;<br/>บนหน้าเว็บ]
 ```
 
-[troubleshooting.md](skills/pretty-avatar/reference/troubleshooting.md) อธิบายแต่ละการตรวจและวิธีแก้เมื่อไม่ผ่าน
+[troubleshooting.md](../skills/pretty-avatar/reference/troubleshooting.md) อธิบายแต่ละการตรวจและวิธีแก้เมื่อไม่ผ่าน
 
 ## คำถามที่พบบ่อย
 
 **ใช้กับ server rendering ได้ไหม?** ได้ ไม่มีการแตะ `window` จนกว่าจะ mount และ render markup เดียวกันบน server
 
-**ใช้ภาพวาดของตัวเองได้ไหม?** ได้ ชีต 3×3 สองแผ่นที่เรียง[ตามลำดับช่อง](skills/pretty-avatar/reference/prompts.md)
+**ใช้ภาพวาดของตัวเองได้ไหม?** ได้ ชีต 3×3 สองแผ่นที่เรียง[ตามลำดับช่อง](../skills/pretty-avatar/reference/prompts.md)
 ใช้ได้ทั้งหมด รัน `python3 skills/pretty-avatar/scripts/avatar.py <name> --skip-generate` เพื่อจัดเรียงและตรวจ
 
 **ใช้กับ Vue หรือ Svelte ได้ไหม?** ยังไม่ได้ ตัวชีตใช้ได้กับทุก framework แต่ component เป็น React
 
 **คัดลอกไฟล์เดียวแทนการติดตั้งได้ไหม?** ได้
-[`skills/pretty-avatar/Pavatar.tsx`](skills/pretty-avatar/Pavatar.tsx) คือ component ทั้งหมดในไฟล์เดียว
+[`skills/pretty-avatar/Pavatar.tsx`](../skills/pretty-avatar/Pavatar.tsx) คือ component ทั้งหมดในไฟล์เดียว
 
 ## ร่วมพัฒนา
 

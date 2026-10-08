@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src=".github/assets/cast.png" width="720" alt="mochi, kuma, usagi, kaeru, pan, piyo, human-afro and person-robot — eight of the 67 ready-made characters">
+<img src="https://raw.githubusercontent.com/kimookpong/pretty-avatar/main/.github/assets/cast.png" width="720" alt="mochi, kuma, usagi, kaeru, pan, piyo, human-afro and person-robot — eight of the 67 ready-made characters">
 
 # pretty-avatar
 
@@ -13,7 +13,7 @@ plus an agent skill, `/pretty-avatar`, that draws new characters for you.
 [![size](https://img.shields.io/badge/gzip-~3%20kB-6fb27a)](https://www.npmjs.com/package/pretty-avatar)
 [![license](https://img.shields.io/badge/license-MIT-e0a92e)](LICENSE)
 
-[**Live demo**](https://kimookpong.github.io/pretty-avatar/) · [Quick start](#quick-start) · [Characters](#characters) · [Props](#props) · [Draw your own](#draw-your-own) · [ภาษาไทย](README.th.md)
+[**Live demo**](https://kimookpong.github.io/pretty-avatar/) · [Quick start](#quick-start) · [Characters](#characters) · [Props](#props) · [Draw your own](#draw-your-own) · [ภาษาไทย](https://github.com/kimookpong/pretty-avatar/blob/main/docs/README.th.md)
 
 </div>
 
@@ -21,13 +21,24 @@ plus an agent skill, `/pretty-avatar`, that draws new characters for you.
 
 ## Quick start
 
-**1 —** install
+**1 — Add the package**
 
 ```bash
 npm i pretty-avatar
 ```
 
-**2 —** put a character's two sheets in `public/avatars/` (`static/` on SvelteKit)
+**2 — Put two sheets in `public/avatars`**
+
+On the [demo page](https://kimookpong.github.io/pretty-avatar/#cast), press **Try it** on a
+character, then **Download** in the playground. Or [draw your own](#draw-your-own).
+
+```
+public/avatars/mochi-directions.webp
+public/avatars/mochi-reactions.webp
+```
+
+<details>
+<summary>Or fetch them from the terminal</summary>
 
 ```bash
 mkdir -p public/avatars
@@ -35,10 +46,11 @@ curl -fsSL -o public/avatars/mochi-directions.webp https://kimookpong.github.io/
 curl -fsSL -o public/avatars/mochi-reactions.webp  https://kimookpong.github.io/pretty-avatar/avatars/mochi-reactions.webp
 ```
 
-Or pick one on the [demo page](https://kimookpong.github.io/pretty-avatar/#cast), press
-**Try it**, and use the **Download** buttons in the playground.
+On SvelteKit the folder is `static/avatars`.
 
-**3 —** render it
+</details>
+
+**3 — Render it**
 
 ```tsx
 import { Pavatar } from 'pretty-avatar'
@@ -145,7 +157,7 @@ skill as one prompt.
 
 ## Under the hood
 
-<img src=".github/assets/sheets.png" width="640" alt="mochi's directions sheet and reactions sheet">
+<img src="https://raw.githubusercontent.com/kimookpong/pretty-avatar/main/.github/assets/sheets.png" width="640" alt="mochi's directions sheet and reactions sheet">
 
 A character is two 3×3 sprite sheets. The angle from the avatar to the cursor picks one
 of nine cells on the left sheet; a click shows cells from the right one. The component

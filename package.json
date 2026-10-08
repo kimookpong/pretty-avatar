@@ -1,6 +1,6 @@
 {
   "name": "pretty-avatar",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A cute avatar that turns its head toward the cursor and reacts when you poke it.",
   "license": "MIT",
   "author": "kimookpong",
@@ -28,7 +28,6 @@
   "files": [
     "dist",
     "README.md",
-    "README.th.md",
     "CHANGELOG.md",
     "LICENSE"
   ],
