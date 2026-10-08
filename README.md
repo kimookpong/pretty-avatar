@@ -176,4 +176,4 @@ The demo deploys to GitHub Pages on every push to `main`.
 
 ## License
 
-MIT © kimookpong — inspired by [page-mascot](https://github.com/nilbuild/page-mascot).
+MIT © kimookpong.

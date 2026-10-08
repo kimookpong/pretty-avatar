@@ -169,4 +169,4 @@ npm run samples        # วาดตัวละครตัวอย่าง�
 
 ## สัญญาอนุญาต
 
-MIT © kimookpong — ได้แรงบันดาลใจจาก [page-mascot](https://github.com/nilbuild/page-mascot)
+MIT © kimookpong

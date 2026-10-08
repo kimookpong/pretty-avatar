@@ -167,22 +167,58 @@ function Hero(props: { picked: Character; t: Text; copy: Copy }) {
   )
 }
 
+// With ~70 characters on the bench, only load the sheets of the ones near the viewport.
+function LazyAvatar(props: { name: CastName; size: number }) {
+  const { name, size } = props
+  const holder = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    if (!holder.current) return
+    if (!('IntersectionObserver' in window)) {
+      setVisible(true)
+      return
+    }
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { rootMargin: '100px' })
+    observer.observe(holder.current)
+    return () => observer.disconnect()
+  }, [])
+  return (
+    <div ref={holder} style={{ width: size, height: size }}>
+      {visible && <Pavatar name={name} basePath={BASE_PATH} size={size} label={name} interactive={false} />}
+    </div>
+  )
+}
+
+const CATEGORIES = ['all', 'animal', 'human'] as const
+type Category = (typeof CATEGORIES)[number]
+
 function ClassPhoto(props: { picked: Character; lang: Lang; t: Text; copy: Copy; onPick: (name: CastName) => void }) {
   const { picked, lang, t, copy, onPick } = props
   const snippet = `<Pavatar name="${picked.name}" />`
+  const [category, setCategory] = useState<Category>('all')
+  const shown = CAST.filter((character) => category === 'all' || character.category === category)
   return (
-    <Section id="cast" kicker="01" title={t.castTitle} lead={t.castLead}>
+    <Section id="cast" kicker="02" title={t.castTitle} lead={t.castLead}>
+      <div className="cast-filters" role="group" aria-label={t.castFilter}>
+        {CATEGORIES.map((value) => (
+          <button key={value} type="button" className="chip" aria-pressed={category === value}
+            onClick={() => setCategory(value)}>
+            {t.categories[value]} ({CAST.filter((character) => value === 'all' || character.category === value).length})
+          </button>
+        ))}
+      </div>
       <ul className="bench">
-        {CAST.map((character) => {
+        {shown.map((character) => {
           const active = character.name === picked.name
           return (
-            <li key={character.name} className={active ? 'seat active' : 'seat'}
-              style={{ '--seat': character.accent } as CSSProperties}>
-              <Pavatar name={character.name} basePath={BASE_PATH} size={128} label={character.name} interactive={false} />
-              <button type="button" className="tag" aria-pressed={active} onClick={() => onPick(character.name)}>
-                <span className="dot" aria-hidden />
-                <code>{character.name}</code>
-                <span className="species">{character[lang]}</span>
+            <li key={character.name} className={active ? 'seat active' : 'seat'} title={`${character.name} · ${character[lang]}`}>
+              <LazyAvatar name={character.name} size={128} />
+              <button type="button" className="tag" aria-pressed={active} aria-label={`${t.tryIt}: ${character.name}`}
+                onClick={() => {
+                  onPick(character.name)
+                  document.getElementById('play')?.scrollIntoView()
+                }}>
+                {t.tryIt}
               </button>
             </li>
           )
@@ -193,16 +229,9 @@ function ClassPhoto(props: { picked: Character; lang: Lang; t: Text; copy: Copy;
         <span className="picked-label">{t.picked}</span>
         <code className="picked-snippet">{snippet}</code>
         <CopyButton id="picked" text={snippet} t={t} copy={copy} />
-        <span className="picked-downloads">
-          {t.download}:{' '}
-          <a href={sheetUrl(picked.name, 'directions')} download>
-            {picked.name}-directions.webp
-          </a>{' '}
-          ·{' '}
-          <a href={sheetUrl(picked.name, 'reactions')} download>
-            {picked.name}-reactions.webp
-          </a>
-        </span>
+        <a className="try-it" href="#play">
+          {t.tryIt} <span aria-hidden>→</span>
+        </a>
       </div>
     </Section>
   )
@@ -229,7 +258,7 @@ function UnderTheHood(props: { picked: Character; t: Text }) {
   const liveRef = useRef<HTMLDivElement>(null)
   const { direction, reaction } = useAvatarState(liveRef)
   return (
-    <Section id="how" kicker="02" title={t.howTitle} lead={t.howLead}>
+    <Section id="how" kicker="03" title={t.howTitle} lead={t.howLead}>
       <div className="hood">
         <div className="hood-live" ref={liveRef}>
           <Pavatar key={picked.name} name={picked.name} basePath={BASE_PATH} size={168} label={picked.name} />
@@ -271,7 +300,7 @@ function Playground(props: { picked: Character; t: Text; copy: Copy }) {
   const set = <K extends keyof Settings>(key: K, value: Settings[K]) => setSettings((s) => ({ ...s, [key]: value }))
 
   return (
-    <Section id="play" kicker="03" title={t.playTitle} lead={t.playLead}>
+    <Section id="play" kicker="01" title={t.playTitle} lead={t.playLead}>
       <div className="playground">
         <div className="panel">
           <label className="slider">
@@ -302,6 +331,14 @@ function Playground(props: { picked: Character; t: Text; copy: Copy }) {
             ))}
           </div>
           <Code id="playground" code={snippet(picked.name, settings)} t={t} copy={copy} />
+          <div className="downloads">
+            <span>{t.download}</span>
+            {(['directions', 'reactions'] as const).map((kind) => (
+              <a key={kind} className="download" href={sheetUrl(picked.name, kind)} download>
+                <span aria-hidden>↓</span> {picked.name}-{kind}.webp
+              </a>
+            ))}
+          </div>
         </div>
         <div className="play-stage">
           <Pavatar key={`${picked.name}-${settings.interactive}`} name={picked.name} basePath={BASE_PATH}
@@ -413,9 +450,9 @@ export function App() {
           pretty-avatar
         </a>
         <div className="nav-links">
+          <a href="#play">{t.nav.play}</a>
           <a href="#cast">{t.nav.cast}</a>
           <a href="#how">{t.nav.how}</a>
-          <a href="#play">{t.nav.play}</a>
           <a href="#install">{t.nav.install}</a>
         </div>
         <div className="nav-actions">
@@ -430,18 +467,20 @@ export function App() {
       </nav>
       <main className="page" id="top">
         <Hero picked={picked} t={t} copy={copy} />
+        <Playground picked={picked} t={t} copy={copy} />
         <ClassPhoto picked={picked} lang={lang} t={t} copy={copy} onPick={setPickedName} />
         <UnderTheHood picked={picked} t={t} />
-        <Playground picked={picked} t={t} copy={copy} />
         <Install picked={picked} t={t} copy={copy} />
         <Make t={t} copy={copy} />
       </main>
-      <footer className="footer">
-        <span>{t.footer}</span>
-        <a href={REPO} target="_blank" rel="noreferrer">
-          github.com/kimookpong/pretty-avatar
-        </a>
-      </footer>
+      <div className="footer-meadow">
+        <footer className="footer">
+          <span>{t.footer}</span>
+          <a href={REPO} target="_blank" rel="noreferrer">
+            github.com/kimookpong/pretty-avatar
+          </a>
+        </footer>
+      </div>
     </div>
   )
 }

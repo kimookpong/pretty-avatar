@@ -3,21 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pretty-avatar</title>
-    <meta name="description" content="A cute avatar for the top of your page. It follows the cursor and reacts when you poke it. React component + agent skill." />
-    <meta property="og:title" content="pretty-avatar" />
-    <meta property="og:description" content="A cute avatar that follows the cursor and reacts when you poke it." />
-    <meta property="og:image" content="https://kimookpong.github.io/pretty-avatar/og.png" />
+    <title>pretty-avatar — cute React avatars that follow the cursor</title>
+    <meta name="description" content="A cute animated avatar for the top of your page. It turns its head to follow the cursor and reacts when you poke it. 68 ready-made characters, a zero-dependency React component, and an AI agent skill to draw your own." />
+    <link rel="canonical" href="https://kimookpong.github.io/pretty-avatar/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="kimookpong" />
+    <meta name="theme-color" content="#bfe1f0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="pretty-avatar" />
+    <meta property="og:title" content="pretty-avatar — cute React avatars that follow the cursor" />
+    <meta property="og:description" content="A cute avatar that turns its head toward the cursor and reacts when you poke it. React component + AI agent skill." />
     <meta property="og:url" content="https://kimookpong.github.io/pretty-avatar/" />
+    <meta property="og:image" content="https://kimookpong.github.io/pretty-avatar/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Seven chibi avatars, animals and people, looking up at a mouse cursor" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="th_TH" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="twitter:title" content="pretty-avatar — cute React avatars that follow the cursor" />
+    <meta name="twitter:description" content="A cute avatar that turns its head toward the cursor and reacts when you poke it." />
+    <meta name="twitter:image" content="https://kimookpong.github.io/pretty-avatar/og.png" />
+    <meta name="twitter:image:alt" content="Seven chibi avatars, animals and people, looking up at a mouse cursor" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareSourceCode",
+        "name": "pretty-avatar",
+        "description": "A cute avatar that turns its head toward the cursor and reacts when you poke it. React component + AI agent skill.",
+        "url": "https://kimookpong.github.io/pretty-avatar/",
+        "codeRepository": "https://github.com/kimookpong/pretty-avatar",
+        "programmingLanguage": ["TypeScript", "React"],
+        "runtimePlatform": "Web browser",
+        "license": "https://opensource.org/licenses/MIT",
+        "image": "https://kimookpong.github.io/pretty-avatar/og.png",
+        "author": { "@type": "Person", "name": "kimookpong", "url": "https://github.com/kimookpong" }
+      }
+    </script>
+    <meta name="color-scheme" content="light" />
     <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Mitr:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..700,100&family=Nunito:wght@400;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Trirong:wght@500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Shown to crawlers and no-JS visitors; React replaces it on load. -->
+    <div id="root">
+      <main style="max-width: 640px; margin: 64px auto; padding: 0 16px; font-family: system-ui, sans-serif">
+        <h1>pretty-avatar — avatars that look back</h1>
+        <p>A cute animated avatar for the top of your page. It turns its head to follow the reader’s cursor and reacts when they poke it.</p>
+        <p>อวตาร์น่ารักสำหรับหัวเว็บ หันตามเมาส์และมีปฏิกิริยาเมื่อถูกคลิก</p>
+        <ul>
+          <li>68 ready-made characters — animals and people</li>
+          <li>Zero-dependency React component, about 10 kB, SSR-safe</li>
+          <li>An AI agent skill that draws your own character</li>
+        </ul>
+        <pre><code>npm i pretty-avatar</code></pre>
+        <p><a href="https://github.com/kimookpong/pretty-avatar">github.com/kimookpong/pretty-avatar</a></p>
+      </main>
+    </div>
     <script type="module" src="/site/main.tsx"></script>
   </body>
 </html>
